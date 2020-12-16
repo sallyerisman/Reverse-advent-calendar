@@ -2,6 +2,10 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+.text__alert {
+    color: darkred;
+}
+
 
 .logout-form {
     display: flex;
@@ -23,5 +27,9 @@
 
 .btn_redirect {
     background-color: #FFC107;
+}
+
+.btn__add-category {
+    background-color: #366093;
 }
 

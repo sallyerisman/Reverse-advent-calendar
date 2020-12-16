@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AuthContextProvider from './contexts/AuthContext'
 import AuthRoute from './components/AuthRoute'
 import Category from './components/Category'
-import EditCategories from './components/EditCategories'
+import Categories from './components/Categories'
+import CreateCategory from './components/CreateCategory'
 import EditCategory from './components/EditCategory'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -23,6 +24,12 @@ const App = () => {
 					<Routes>
 						<Route path="/">
 							<Home />
+						</Route>
+
+						<Route path="/donera">
+							<Route path="/">
+								<Categories />
+							</Route>
 
 							<Route path="/:categoryId">
 								<Category />
@@ -34,14 +41,18 @@ const App = () => {
 								<Login />
 							</Route>
 
-							<AuthRoute path="/redigera">
-								<AuthRoute path="/">
-									<EditCategories />
-								</AuthRoute>
+							<AuthRoute path="/ny-kategori">
+								<CreateCategory />
+							</AuthRoute>
 
-								<AuthRoute path="/:categoryId">
+							<AuthRoute path="/redigera">
+								<Route path="/">
+									<Categories />
+								</Route>
+
+								<Route path="/:categoryId">
 									<EditCategory />
-								</AuthRoute>
+								</Route>
 							</AuthRoute>
 
 							<AuthRoute path="/utloggning">
