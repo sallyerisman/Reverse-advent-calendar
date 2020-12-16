@@ -24,11 +24,11 @@ const CreateCategory = () => {
 		setLoading(true)
 
 		try {
-			const docRef = await db.collection('categories').add({
+			await db.collection('categories').add({
 				title,
 			})
 
-			navigate(`admin/redigera`)
+			navigate(`/admin/redigera`)
 		} catch (e) {
 			setError(e.message)
 			setLoading(false)
@@ -49,7 +49,7 @@ const CreateCategory = () => {
 							<Form.Group id="title">
 								<Form.Label>Namn på kategorin</Form.Label>
 								<Form.Control type="title" onChange={handleTitleChange} value={title} required />
-								{title && title.length < 4 && (
+								{title && title.length < 3 && (
 									<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
 								)}
 							</Form.Group>
