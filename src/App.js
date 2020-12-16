@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import AuthContextProvider from './contexts/AuthContext'
+import AuthRoute from './components/AuthRoute'
 import Category from './components/Category'
 import EditCategories from './components/EditCategories'
 import EditCategory from './components/EditCategory'
@@ -20,10 +21,8 @@ const App = () => {
 				<Navigation />
 				<Container>
 					<Routes>
-						<Route path="/donera">
-							<Route path="/">
-								<Home />
-							</Route>
+						<Route path="/">
+							<Home />
 
 							<Route path="/:categoryId">
 								<Category />
@@ -35,19 +34,19 @@ const App = () => {
 								<Login />
 							</Route>
 
-							<Route path="/donera">
-								<Route path="/">
+							<AuthRoute path="/redigera">
+								<AuthRoute path="/">
 									<EditCategories />
-								</Route>
+								</AuthRoute>
 
-								<Route path="/:categoryId">
+								<AuthRoute path="/:categoryId">
 									<EditCategory />
-								</Route>
+								</AuthRoute>
+							</AuthRoute>
 
-								<Route path="/utloggning">
-									<Logout />
-								</Route>
-							</Route>
+							<AuthRoute path="/utloggning">
+								<Logout />								
+							</AuthRoute>
 						</Route>
 
 						<Route path="*" element={<NotFound />} />

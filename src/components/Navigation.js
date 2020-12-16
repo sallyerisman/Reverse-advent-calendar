@@ -1,9 +1,11 @@
 import React from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Navbar, Container } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 import logo from '../assets/images/logo-skane_stadsmission.png'
 
 const Navigation = () => {
+    const { currentUser } = useAuth();
 
 	return (
         <Navbar>
@@ -16,7 +18,11 @@ const Navigation = () => {
                     />
                 </Link>
 
-                <NavLink to="/inloggning">Logga in</NavLink>
+                {
+                    currentUser 
+                        ? (<NavLink to="/admin/utloggning">Logga ut</NavLink>) 
+                        : (<NavLink to="/admin">Logga in</NavLink>)
+                }               
             </Container>
         </Navbar>
 	)

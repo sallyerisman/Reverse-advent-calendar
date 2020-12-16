@@ -2,8 +2,26 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+
+.logout-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .page-logo {
     width: 60px;
     height: auto;
+}
+
+.btn_log-in {
+    background-color: #366093;
+}
+
+.btn_log-out {
+    background-color: red;
+}
+
+.btn_redirect {
+    background-color: #FFC107;
 }
 
