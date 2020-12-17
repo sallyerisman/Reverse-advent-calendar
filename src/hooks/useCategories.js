@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { db } from '../firebase'
 
 const useCategories = () => {
-	const [categories, setAlbums] = useState([])
+	const [categories, setCategories] = useState([])
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
@@ -18,7 +18,7 @@ const useCategories = () => {
 				})
 			})
 
-			setAlbums(snapshotCategories)
+			setCategories(snapshotCategories)
 			setLoading(false)
 		})
 

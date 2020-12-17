@@ -24,11 +24,12 @@ const CreateCategory = () => {
 		setLoading(true)
 
 		try {
-			await db.collection('categories').add({
+			const docRef = await db.collection('categories').add({
 				title,
 			})
 
-			navigate(`/admin/redigera`)
+			navigate(`/admin/redigera/${docRef.id}`)
+
 		} catch (e) {
 			setError(e.message)
 			setLoading(false)
@@ -53,8 +54,7 @@ const CreateCategory = () => {
 									<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
 								)}
 							</Form.Group>
-
-							<Button disabled={loading} type="submit">Lägg till</Button>
+							<Button disabled={loading} type="submit">Skapa kategori</Button>
 						</Form>
 					</Card.Body>
 				</Card>

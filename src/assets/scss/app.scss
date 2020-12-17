@@ -2,10 +2,6 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-.text__alert {
-    color: darkred;
-}
-
 
 .logout-form {
     display: flex;
@@ -16,6 +12,32 @@
     width: 60px;
     height: auto;
 }
+
+
+
+
+// Informational messages and alerts
+
+.text__alert {
+    color: darkred;
+}
+
+
+// Icons and links
+
+.icon-container {
+    text-align: right;
+}
+
+.link__edit-category {
+    color: green;
+}
+
+.link__add-input-field {
+    color: green;
+}
+
+// Buttons
 
 .btn_log-in {
     background-color: #366093;
@@ -32,4 +54,6 @@
 .btn__add-category {
     background-color: #366093;
 }
+
+
 

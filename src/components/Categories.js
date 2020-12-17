@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
 import useCategories from '../hooks/useCategories'
-import CategoriesGrid from './CategoriesGrid'
+import CategoryGrid from './CategoryGrid'
 
 const Categories = () => {
-	const { currentUser } = useAuth()
 	const { categories, loading } = useCategories()
 
 	return (
@@ -14,14 +11,8 @@ const Categories = () => {
 			{
 				loading
 					? ("Loading...")
-					: (<CategoriesGrid categories={categories} />)
+					: (<CategoryGrid categories={categories} />)
 			}
-
-			{currentUser && (
-				<div>
-					<Link to="/admin/ny-kategori" className="btn btn__add-category">Lägg till ny kategori</Link>
-				</div>
-			)}
 		</>
 	)
 }

@@ -8,6 +8,7 @@ import Category from './components/Category'
 import Categories from './components/Categories'
 import CreateCategory from './components/CreateCategory'
 import EditCategory from './components/EditCategory'
+import EditCategories from './components/EditCategories'
 import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
@@ -47,7 +48,7 @@ const App = () => {
 
 							<AuthRoute path="/redigera">
 								<Route path="/">
-									<Categories />
+									<EditCategories />
 								</Route>
 
 								<Route path="/:categoryId">
