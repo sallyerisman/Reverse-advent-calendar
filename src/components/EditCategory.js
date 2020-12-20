@@ -3,15 +3,21 @@ import { useParams } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
+import EditTitle from './EditTitle'
 import useCategory from '../hooks/useCategory'
 
 const EditCategory = () => {
 	const [addProduct, setAddProduct] = useState(false);
+	const [editTitle, setEditTitle] = useState(false);
 	const { categoryId } = useParams()
 	const { loading, products, title } = useCategory(categoryId)
 	
 	const handleAddProduct = () => {
         setAddProduct(true);
+	};
+	
+	const handleEditTitle = () => {
+        setEditTitle(true);
     };
 
 	return (
@@ -19,7 +25,12 @@ const EditCategory = () => {
 			{loading
 				? ("Loading...")
 				: (<>
-					<h2>{title} 🖋</h2>
+
+					{editTitle 
+						? <EditTitle categoryId={categoryId} title={title}/> 
+						: <h2>{title} <span onClick={handleEditTitle}>🖋</span></h2>
+					}
+
 					{products.length < 1 
 						? (<div>Just nu finns det inga produkter i denna kategori</div>)
 						: <CategoryContent products={products} />					
