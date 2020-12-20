@@ -28,7 +28,6 @@ const AddProduct = ({ categoryId, products, title }) => {
 				products: [...products, product]
 			});
 
-			console.log("all good")
 			setLoading(false)
 			setProduct("")
 

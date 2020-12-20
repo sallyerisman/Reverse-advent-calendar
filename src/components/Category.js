@@ -14,7 +14,7 @@ const Category = () => {
 					<h2>{title}</h2>
 					{products.length < 1 
 						? (<div>Just nu finns det inga produkter i denna kategori</div>)
-						: <CategoryContent products={products} />					
+						: <CategoryContent products={products}/>					
 					}	
 				</>) 
 			}
