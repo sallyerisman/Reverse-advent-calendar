@@ -1,9 +1,17 @@
+import { useState } from 'react'
 import { Row, Col, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import useDeleteCategory from '../hooks/useDeleteCategory'
 
 const CategoryGrid = ({ categories }) => {
 	const { currentUser } = useAuth()
+	const [deleteCategory, setDeleteCategory] = useState(null);
+	useDeleteCategory(deleteCategory);
+
+	const handleDeleteCategory = (category) => {
+		setDeleteCategory(category);
+	}
 
 	return (
 		<Row>
@@ -17,6 +25,12 @@ const CategoryGrid = ({ categories }) => {
 							{currentUser && (
 								<div>
 									<Link to={`/admin/redigera/${category.id}`} className="link__edit-category">Redigera 🖋</Link>
+
+									<span 
+										onClick={() => {handleDeleteCategory(category.id)
+									}}>
+										Ta bort
+									</span>
 								</div>
 							)}
 						</Card.Body>
