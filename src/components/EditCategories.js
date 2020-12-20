@@ -18,9 +18,7 @@ const EditCategories = () => {
 			}
 
 			{currentUser && (
-				<div>
-					<Link to="/admin/ny-kategori" className="btn btn__add-category">Lägg till ny kategori</Link>
-				</div>
+				<Link to="/admin/ny-kategori" className="btn btn__add-category">Lägg till ny kategori</Link>
 			)}
 		</>
 	)

@@ -12,12 +12,14 @@ const useCategory = (categoryId) => {
 			.onSnapshot(async (doc) => {
 				const title = await doc.data().title;
 				const allProducts = await doc.data().products;
+
+				allProducts && setProducts(Object.values(allProducts));
 				
 				setTitle(title);
-				setProducts(Object.values(allProducts));
 				setLoading(false)
 			});
 			return unSubscribe
+
 	  }, []);
 	
 	return { loading, products, title }

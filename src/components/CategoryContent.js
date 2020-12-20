@@ -8,7 +8,7 @@ const CategoryContent = ({ products }) => {
 			{products.map((product) => (				
 				<li key={product}>
 					{product}
-					{currentUser && "🖋"}
+					{currentUser && "🗑"}
 				</li>
 			))}
 		</ul>

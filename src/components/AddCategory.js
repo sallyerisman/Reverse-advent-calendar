@@ -3,7 +3,7 @@ import { Row, Col, Card, Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../firebase'
 
-const CreateCategory = () => {
+const AddCategory = () => {
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
 	const [title, setTitle] = useState("")
@@ -24,11 +24,11 @@ const CreateCategory = () => {
 		setLoading(true)
 
 		try {
-			const docRef = await db.collection('categories').add({
+			await db.collection('categories').add({
 				title,
 			})
 
-			navigate(`/admin/redigera/${docRef.id}`)
+			navigate(`/admin/redigera`)
 
 		} catch (e) {
 			setError(e.message)
@@ -63,4 +63,4 @@ const CreateCategory = () => {
 	)
 }
 
-export default CreateCategory
+export default AddCategory

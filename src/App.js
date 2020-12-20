@@ -6,7 +6,7 @@ import AuthContextProvider from './contexts/AuthContext'
 import AuthRoute from './components/AuthRoute'
 import Category from './components/Category'
 import Categories from './components/Categories'
-import CreateCategory from './components/CreateCategory'
+import AddCategory from './components/AddCategory'
 import EditCategory from './components/EditCategory'
 import EditCategories from './components/EditCategories'
 import Home from './components/Home'
@@ -43,7 +43,7 @@ const App = () => {
 							</Route>
 
 							<AuthRoute path="/ny-kategori">
-								<CreateCategory />
+								<AddCategory />
 							</AuthRoute>
 
 							<AuthRoute path="/redigera">
