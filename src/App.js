@@ -2,9 +2,11 @@ import { Container } from 'react-bootstrap'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import AuthContextProvider from './contexts/AuthContext'
+import StorageContextProvider from './contexts/StorageContext'
 import AuthRoute from './components/AuthRoute'
 import Category from './components/Category'
 import Categories from './components/Categories'
+import DonationList from './components/DonationList'
 import AddCategory from './components/AddCategory'
 import EditCategory from './components/EditCategory'
 import EditCategories from './components/EditCategories'
@@ -20,7 +22,10 @@ const App = () => {
 		<Router>
 			<AuthContextProvider>
 				<Navigation />
+
+				<StorageContextProvider>
 				<Container>
+					<DonationList />
 					<Routes>
 						<Route path="/">
 							<Home />
@@ -64,6 +69,7 @@ const App = () => {
 
 					</Routes>
 				</Container>
+				</StorageContextProvider>
 			</AuthContextProvider>
 		</Router>
 	)
