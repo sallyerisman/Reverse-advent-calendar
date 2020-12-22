@@ -14,7 +14,7 @@ const useDeleteProduct = (categoryId, deleteProduct, products) => {
 			})
 
 			await db.collection('categories').doc(categoryId).update({
-				"products": newProductArray
+				'products': newProductArray
 			});
 
 		})();

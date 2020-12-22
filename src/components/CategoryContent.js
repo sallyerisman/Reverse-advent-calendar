@@ -26,6 +26,7 @@ const CategoryContent = ({ products }) => {
 			{products.map((product) => (				
 				<li key={product}>
 					{product}
+					
 					{currentUser  
 						? <Button onClick={() => {handleDeleteProduct(product)}}>Ta bort</Button>
 						: <Button onClick={() => {handleDonateProduct(product)}}>Donera</Button>

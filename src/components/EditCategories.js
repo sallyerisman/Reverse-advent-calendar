@@ -1,26 +1,28 @@
 import { Link } from 'react-router-dom'
+import { Col, Row } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import useCategories from '../hooks/useCategories'
 import CategoryGrid from './CategoryGrid'
 
 const EditCategories = () => {
-	const { currentUser } = useAuth()
 	const { categories, loading } = useCategories()
+	const { currentUser } = useAuth()
 
 	return (
-		<>
-			<h2>Vad vi behöver just nu</h2>
+		<Row>
+			<Col>
+				<h2>Vad vi behöver just nu</h2>
 
-			{
-				loading
-					? ("Loading...")
-					: (<CategoryGrid categories={categories} />)
-			}
+				{loading
+					? "Loading..."
+					: <CategoryGrid categories={categories} />
+				}
 
-			{currentUser && (
-				<Link to="/admin/ny-kategori" className="btn btn__add-category">Lägg till ny kategori</Link>
-			)}
-		</>
+				{currentUser && 
+					<Link to="/admin/ny-kategori" className="btn btn__add-category">Lägg till ny kategori</Link>
+				}
+			</Col>
+		</Row>
 	)
 }
 

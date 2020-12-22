@@ -43,7 +43,7 @@ const AuthContextProvider = (props) => {
 
 	return (
 		<AuthContext.Provider value={contextValues}>
-			{loading && ("Loading...")}
+			{loading && "Loading..."}
 			{!loading && props.children}
 		</AuthContext.Provider>
 	)

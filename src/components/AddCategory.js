@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Row, Col, Card, Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 import { db } from '../firebase'
 
 const AddCategory = () => {
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
-	const [title, setTitle] = useState("")
 	const navigate = useNavigate()
+	const [title, setTitle] = useState("")
 
 	const handleTitleChange = (e) => {
 		setTitle(e.target.value)
@@ -31,7 +31,7 @@ const AddCategory = () => {
 			navigate(`/admin/redigera`)
 
 		} catch (e) {
-			setError(e.message)
+			setError("Något gick fel och kategorin kunde inte läggas till. Var god försök igen.")
 			setLoading(false)
 		}
 	}
@@ -39,25 +39,22 @@ const AddCategory = () => {
 	return (
 		<Row>
 			<Col>
-				<Card>
-					<Card.Body>
-						<Card.Title>Skapa ny kategori</Card.Title>
+				<h2>Skapa ny kategori</h2>
 
-						{error && (<Alert variant="danger">{error}</Alert>)}
+				{error && <Alert variant="danger">{error}</Alert>}
 
-						<Form onSubmit={handleSubmit}>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group id="title">
+						<Form.Label>Namn på kategorin</Form.Label>
+						<Form.Control type="title" onChange={handleTitleChange} value={title} required />
 
-							<Form.Group id="title">
-								<Form.Label>Namn på kategorin</Form.Label>
-								<Form.Control type="title" onChange={handleTitleChange} value={title} required />
-								{title && title.length < 3 && (
-									<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
-								)}
-							</Form.Group>
-							<Button disabled={loading} type="submit">Skapa kategori</Button>
-						</Form>
-					</Card.Body>
-				</Card>
+						{title && title.length < 3 && 
+							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
+						}
+
+					</Form.Group>
+					<Button disabled={loading} type="submit">Skapa kategori</Button>
+				</Form>
 			</Col>
 		</Row>
 	)

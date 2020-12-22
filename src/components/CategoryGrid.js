@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Row, Col, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Card, Col, Row } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import useDeleteCategory from '../hooks/useDeleteCategory'
 
@@ -9,15 +9,15 @@ const CategoryGrid = ({ categories }) => {
 	const [deleteCategory, setDeleteCategory] = useState(null);
 	useDeleteCategory(deleteCategory);
 
-	const handleDeleteCategory = (category) => {
-		setDeleteCategory(category);
+	const handleDeleteCategory = (categoryId) => {
+		setDeleteCategory(categoryId);
 	}
 
 	return (
 		<Row>
-			{categories.map(category => (
-				<Col sm={6} md={4} lg={3} key={category.id}>
-					<Card>
+			<Col>
+				{categories.map(category => (
+					<Card key={category.id}>
 						<Card.Body>
 							<Card.Title>
 								<Link to={`/donera/${category.id}`}>{category.title}</Link>
@@ -35,8 +35,8 @@ const CategoryGrid = ({ categories }) => {
 							)}
 						</Card.Body>
 					</Card>
-				</Col>
-			))}
+				))}
+			</Col>
 		</Row>
 	)
 }

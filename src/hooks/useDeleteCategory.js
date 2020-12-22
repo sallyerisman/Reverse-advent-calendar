@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { db } from '../firebase'
 
-const useDeleteCategory = (deleteCategory) => {
+const useDeleteCategory = (categoryId) => {
 
 	useEffect(() => {
-		if (!deleteCategory) {
+		if (!categoryId) {
 			return;
 		}
 
 		(async () => {
-			await db.collection('categories').doc(deleteCategory).delete();
+			await db.collection('categories').doc(categoryId).delete();
 		})();
-	}, [deleteCategory]);
+	}, [categoryId]);
 
 	return {}
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useStorage } from '../contexts/StorageContext'
 
@@ -17,18 +17,21 @@ const DonationList = () => {
 	}
 
 	return (
-		<>
-			{!currentUser && productList
-				? (<ol>{productList.map((item, index) => (				
-					<li key={index}>
-						{item}
-						<Button onClick={() => {handleRemoveItem(index)}}>Ta bort från listan</Button>
-					</li>
-				))}
-				</ol>)
-				: (<p>Nothing to see here...</p>)
-			}
-		</>
+		<Row>
+			<Col>
+				{!currentUser && productList
+					? <ol>
+						{productList.map((item, index) => (				
+							<li key={index}>
+								{item}
+								<Button onClick={() => {handleRemoveItem(index)}}>Ta bort från listan</Button>
+							</li>
+						))}
+					</ol>
+					: ""
+				}
+			</Col>
+		</Row>
 	)
 }
 

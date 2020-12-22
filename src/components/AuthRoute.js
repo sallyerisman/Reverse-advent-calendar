@@ -7,8 +7,8 @@ const AuthRoute = (props) => {
 
 	return (
 			currentUser
-			? (<Route {...props} />)
-			: (<Navigate to="/admin" />)
+			? <Route {...props} />
+			: <Navigate to='/admin' />
 		)
 }
 

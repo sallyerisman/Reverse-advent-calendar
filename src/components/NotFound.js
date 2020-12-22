@@ -1,6 +1,6 @@
 const NotFound = () => {
 	return (
-		<div>Hello from NotFound</div>
+		<div>Sidan du sökte finns inte</div>
 	)
 }
 
