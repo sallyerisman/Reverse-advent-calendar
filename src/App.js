@@ -1,21 +1,24 @@
 import { Container } from 'react-bootstrap'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './assets/scss/app.scss'
 
 import AuthContextProvider from './contexts/AuthContext'
 import StorageContextProvider from './contexts/StorageContext'
+
+import AddCategory from './components/AddCategory'
 import AuthRoute from './components/AuthRoute'
 import Category from './components/Category'
 import Categories from './components/Categories'
 import DonationList from './components/DonationList'
-import AddCategory from './components/AddCategory'
 import EditCategory from './components/EditCategory'
 import EditCategories from './components/EditCategories'
+import ForgotPassword from './components/ForgotPassword'
 import Home from './components/Home'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Navigation from './components/Navigation'
 import NotFound from './components/NotFound'
-import './assets/scss/app.scss'
+
 
 const App = () => {
 	return (
@@ -44,6 +47,10 @@ const App = () => {
 						<Route path="/admin">
 							<Route path="/">
 								<Login />
+							</Route>
+
+							<Route path="/aterstall-losenord">
+								<ForgotPassword />
 							</Route>
 
 							<AuthRoute path="/ny-kategori">

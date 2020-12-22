@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Row, Col, Form, Button, Card, Alert } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 const Login = () => {
@@ -52,6 +52,8 @@ const Login = () => {
 						</Form>
 					</Card.Body>
 				</Card>
+
+				<Link to="/admin/aterstall-losenord">Glömt ditt lösenord?</Link>
 			</Col>
 		</Row>
 	)
