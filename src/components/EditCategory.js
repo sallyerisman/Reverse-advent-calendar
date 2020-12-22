@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
@@ -39,6 +39,8 @@ const EditCategory = () => {
 					{addProduct && <AddProduct categoryId={categoryId} products={products} title={title}/>}
 
 					<Button onClick={handleAddProduct} type="button">Lägg till produkt</Button>
+
+					<Link to={`/redigera/`}>Tillbaka till kategorier</Link>
 
 				</>) 
 			}

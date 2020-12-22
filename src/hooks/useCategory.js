@@ -7,16 +7,17 @@ const useCategory = (categoryId) => {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		const unSubscribe = db.collection('categories')
-			.doc(categoryId)
+		const unSubscribe = db.collection('categories').doc(categoryId)
 			.onSnapshot(async (doc) => {
-				const title = await doc.data().title;
-				const allProducts = await doc.data().products;
+				const data = doc.data();
 
-				allProducts && setProducts(Object.values(allProducts));
-				
-				setTitle(title);
-				setLoading(false)
+				if (!data) {
+					return;
+				} else {	
+					await data.products && setProducts(Object.values(data.products));					
+					setTitle(await data.title);
+					setLoading(false)
+				}
 			});
 			return unSubscribe
 
@@ -26,3 +27,4 @@ const useCategory = (categoryId) => {
 }
 
 export default useCategory
+
