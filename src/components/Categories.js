@@ -1,4 +1,5 @@
 import { Col, Row } from 'react-bootstrap'
+import DotLoader from 'react-spinners/DotLoader'
 import useCategories from '../hooks/useCategories'
 import CategoryGrid from './CategoryGrid'
 
@@ -11,7 +12,7 @@ const Categories = () => {
 				<h2>Vad vi behöver just nu</h2>
 
 				{loading
-					? "Loading..."
+					? <DotLoader className="loading-spinner"/>
 					: <CategoryGrid categories={categories} />
 				}
 			</Col>

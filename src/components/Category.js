@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
+import DotLoader from 'react-spinners/DotLoader'
 import useCategory from '../hooks/useCategory'
 import CategoryContent from './CategoryContent'
 
@@ -11,7 +12,7 @@ const Category = () => {
 		<Row>
 			<Col>
 				{loading
-					? "Loading..."
+					? <DotLoader className="loading-spinner"/>
 					: <>
 						<h2>{title}</h2>
 						{products.length < 1 

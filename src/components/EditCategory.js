@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import { Button, Col, Row } from 'react-bootstrap'
+import DotLoader from 'react-spinners/DotLoader'
 import useCategory from '../hooks/useCategory'
 import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
@@ -24,7 +25,7 @@ const EditCategory = () => {
 		<Row>
 			<Col>
 				{loading
-					? "Loading..."
+					? <DotLoader className="loading-spinner"/>
 					: <>
 						{editTitle 
 							? <EditTitle categoryId={categoryId} title={title}/> 
