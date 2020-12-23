@@ -19,16 +19,19 @@ const DonationList = () => {
 	return (
 		<Row>
 			<Col>
-				{!currentUser && productList
-					? <ol>
+				{!currentUser && productList && productList.length === 24 &&
+					<div>Underbart, du har uppnått 24 saker att donera - TACK!</div>
+				}
+
+				{!currentUser && productList && 
+					<ol>
 						{productList.map((item, index) => (				
 							<li key={index}>
 								{item}
 								<Button onClick={() => {handleRemoveItem(index)}}>Ta bort från listan</Button>
 							</li>
 						))}
-					</ol>
-					: ""
+					</ol>					
 				}
 			</Col>
 		</Row>

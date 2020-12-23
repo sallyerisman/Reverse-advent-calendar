@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useStorage } from '../contexts/StorageContext'
 import useDeleteProduct from '../hooks/useDeleteProduct'
 
-const CategoryContent = ({ products }) => {
-	const { addToStorage } = useStorage()
-	const { categoryId } = useParams()
+const CategoryContent = ({ categoryId, products }) => {
+	const { addToStorage, changes, retrieveFromStorage } = useStorage()
 	const { currentUser } = useAuth()
 	const [deleteProduct, setDeleteProduct] = useState(null)
-
+	const [productList, setProductList] = useState(null)
 	useDeleteProduct(categoryId, deleteProduct, products)
+
+	useEffect(() => {
+		setProductList(retrieveFromStorage('products'));
+	}, [changes]);
 
 	const handleDeleteProduct = (product) => {
 		setDeleteProduct(product);
@@ -29,7 +31,8 @@ const CategoryContent = ({ products }) => {
 					
 					{currentUser  
 						? <Button onClick={() => {handleDeleteProduct(product)}}>Ta bort</Button>
-						: <Button onClick={() => {handleDonateProduct(product)}}>Donera</Button>
+						: productList && productList.length < 24 &&
+							<Button onClick={() => {handleDonateProduct(product)}}>Donera</Button>
 					}
 				</li>
 			))}

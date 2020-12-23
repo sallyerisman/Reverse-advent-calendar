@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Button, Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
 import useCategory from '../hooks/useCategory'
@@ -34,13 +34,13 @@ const EditCategory = () => {
 
 						{products.length < 1 
 							? <div>Just nu finns det inga produkter i denna kategori</div>
-							: <CategoryContent products={products} />					
+							: <CategoryContent categoryId={categoryId} products={products} />					
 						}
 			
-						{addProduct && <AddProduct categoryId={categoryId} products={products} title={title}/>}
-
-						<Button onClick={handleAddProduct} type="button">Lägg till produkt</Button>
-						<Link to={`/redigera/`}>Tillbaka till kategorier</Link>
+						{addProduct 
+							? <AddProduct categoryId={categoryId} products={products} title={title}/>
+							: <Button onClick={handleAddProduct} type="button">Lägg till produkt</Button>
+						}
 					</> 
 				}
 			</Col>

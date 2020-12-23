@@ -2,6 +2,9 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+.set-color {
+    color: red
+}
 
 .logout-form {
     display: flex;
@@ -15,6 +18,12 @@
 
 .loading-spinner {
     color: green;
+}
+
+// Layout
+.site-layout {
+    display: flex;
+    justify-content: space-between;
 }
 
 

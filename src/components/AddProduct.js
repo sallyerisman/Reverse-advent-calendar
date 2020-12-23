@@ -11,9 +11,7 @@ const AddProduct = ({ categoryId, products, title }) => {
 		setProduct(e.target.value)
 	}
 
-	const handleSubmit = async (e) => {
-		e.preventDefault()
-
+	const handleAddProduct = async (e) => {
 		if (product.length < 2) {
 			return;
 		}
@@ -37,22 +35,17 @@ const AddProduct = ({ categoryId, products, title }) => {
 	}
 
 	return (
-		<Row>
-			{error && <Alert variant="danger">{error}</Alert>}
-
-			<Form onSubmit={handleSubmit}>
-				<Form.Group id="product">
-					<Form.Label>Namn på produkten</Form.Label>
-					<Form.Control type="product" onChange={handleProductChange} value={product} />
-					
-					{product && product.length < 2 && 
-						<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
-					}
-					
-				</Form.Group>
-				<Button disabled={loading} type="submit">Lägg till</Button>
-			</Form>
-		</Row>
+		<>
+			<Form.Group id="product">
+				<Form.Label>Namn på produkten</Form.Label>
+				<Form.Control type="product" onChange={handleProductChange} value={product} />
+				
+				{product && product.length < 2 && 
+					<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
+				}					
+			</Form.Group>
+			<Button disabled={loading} onClick={handleAddProduct}>Lägg till</Button>
+		</>
 	)
 }
 

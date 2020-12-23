@@ -34,24 +34,22 @@ const EditTitle = ({ categoryId, title }) => {
 	}
 
 	return (
-		<Row>
-			<Col>
-				{error && <Alert variant="danger">{error}</Alert>}
+		<>
+            {error && <Alert variant="danger">{error}</Alert>}
 
-				<Form onSubmit={handleSubmit}>
-					<Form.Group id="title">
-						<Form.Label>Uppdatera namnet på kategorin</Form.Label>
-						<Form.Control type="title" onChange={handleTitleChange} placeholder={title} value={newTitle} />
-						
-						{title && title.length < 3 && 
-							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
-						}
+            <Form onSubmit={handleSubmit}>
+                <Form.Group id="title">
+                    <Form.Label>Uppdatera namnet på kategorin</Form.Label>
+                    <Form.Control type="title" onChange={handleTitleChange} placeholder={title} value={newTitle} />
+                    
+                    {title && title.length < 3 && 
+                        <Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
+                    }
 
-					</Form.Group>
-					<Button type="submit">Uppdatera</Button>
-				</Form>
-			</Col>
-		</Row>
+                </Form.Group>
+                <Button type="submit">Uppdatera</Button>
+            </Form>
+		</>
 	)
 }
 

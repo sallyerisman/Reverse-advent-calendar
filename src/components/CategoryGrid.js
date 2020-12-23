@@ -24,11 +24,9 @@ const CategoryGrid = ({ categories }) => {
 							</Card.Title>
 							{currentUser && (
 								<div>
-									<Link to={`/admin/redigera/${category.title}`} className="link__edit-category">Redigera 🖋</Link>
+									<Link to={`/admin/redigera/${category.id}`} className="link__edit-category">Redigera 🖋</Link>
 
-									<span 
-										onClick={() => {handleDeleteCategory(category.id)
-									}}>
+									<span onClick={() => {handleDeleteCategory(category.id)}}>
 										Ta bort
 									</span>
 								</div>

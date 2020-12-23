@@ -10,8 +10,6 @@ import AuthRoute from './components/AuthRoute'
 import Categories from './components/Categories'
 import Category from './components/Category'
 import DonationList from './components/DonationList'
-import EditCategories from './components/EditCategories'
-import EditCategory from './components/EditCategory'
 import ForgotPassword from './components/ForgotPassword'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -23,10 +21,9 @@ const App = () => {
 	return (
 		<Router>
 			<AuthContextProvider>
-				<Navigation />
 				<StorageContextProvider>
-					<Container>
-						<DonationList />
+					<Navigation />
+					<Container className="site-layout">
 						<Routes>
 							<Route path="/">
 								<Home />
@@ -57,11 +54,11 @@ const App = () => {
 
 								<AuthRoute path="/redigera">
 									<Route path="/">
-										<EditCategories />
+										<Categories />
 									</Route>
 
 									<Route path="/:categoryId">
-										<EditCategory />
+										<Category />
 									</Route>
 								</AuthRoute>
 
@@ -71,8 +68,8 @@ const App = () => {
 							</Route>
 
 							<Route path="*" element={<NotFound />} />
-
 						</Routes>
+						<DonationList />
 					</Container>
 				</StorageContextProvider>
 			</AuthContextProvider>

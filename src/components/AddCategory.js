@@ -28,7 +28,7 @@ const AddCategory = () => {
 				title,
 			})
 
-			navigate(`/admin/redigera`)
+			navigate('/admin/redigera')
 
 		} catch (e) {
 			setError("Något gick fel och kategorin kunde inte läggas till. Var god försök igen.")
