@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
 import { Button, Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
 import useCategory from '../hooks/useCategory'
@@ -7,9 +6,8 @@ import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
 import EditTitle from './EditTitle'
 
-const EditCategory = () => {
+const EditCategory = ({ categoryId }) => {
 	const [addProduct, setAddProduct] = useState(false);
-	const { categoryId } = useParams()
 	const [editTitle, setEditTitle] = useState(false);
 	const { loading, products, title } = useCategory(categoryId)
 	

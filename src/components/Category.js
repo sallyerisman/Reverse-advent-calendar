@@ -13,22 +13,24 @@ const Category = () => {
 
 	return (
 		<Row>
+			<Col>
 			{loading
 				? <DotLoader className="loading-spinner"/>
 				: currentUser 
-					? <Col>
-						<EditCategory />
+					? <>
+						<EditCategory categoryId={categoryId}/>
 						<Link to={'/admin/redigera'}>Tillbaka till kategorier</Link>
-					</Col>
-					: <Col>
+					</>
+					: <>
 						<h2>{title}</h2>
 						{products.length < 1 
 							? <div>Just nu finns det inga produkter i denna kategori</div>
 							: <CategoryContent categoryId={categoryId} products={products}/>					
 						}
 						<Link to={'/donera/'}>Tillbaka till kategorier</Link>		
-					</Col>
-			}	
+					</>
+			}
+			</Col>	
 		</Row>
 	)
 }

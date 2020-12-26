@@ -15,6 +15,7 @@ const Logout = () => {
 		setError(null);
 
 		try {
+			// Attempt log out of current user
 			setLoading(true)
 			await logout()
 			navigate('/admin')
@@ -32,7 +33,7 @@ const Logout = () => {
 				<h2>Är du säker på att du vill logga ut?</h2>
 
 				<Form onSubmit={handleSubmit} className="logout-form">
-					<Button disabled={loading} type="submit" className="btn_log-out">Ja, logga ut mig</Button>					
+					<Button disabled={loading} type="submit" className="btn btn__log-out">Ja, logga ut mig</Button>					
 					<Link to="/admin/redigera">Nej, ta mig tillbaka till redigeringsvyn</Link>
 				</Form>
 			</Col>

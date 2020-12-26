@@ -6,7 +6,7 @@ const useCategories = () => {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		// Create snapshot listener for all available categories in firebase
+		// Snapshot listener for all available categories in firebase
 		const unsubscribe = db.collection('categories').orderBy('title').onSnapshot(snapshot => {
 			setLoading(true)
 			const snapshotCategories = []

@@ -30,7 +30,7 @@ const CategoryContent = ({ categoryId, products }) => {
 					{product}
 					
 					{currentUser  
-						? <Button onClick={() => {handleDeleteProduct(product)}}>Ta bort</Button>
+						? <Button className="btn btn__delete-product" onClick={() => {handleDeleteProduct(product)}}>Ta bort</Button>
 						: productList && productList.length < 24 &&
 							<Button onClick={() => {handleDonateProduct(product)}}>Donera</Button>
 					}

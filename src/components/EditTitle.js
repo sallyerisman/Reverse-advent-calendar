@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import { db } from '../firebase'
 
 const EditTitle = ({ categoryId, title }) => {
@@ -22,6 +22,7 @@ const EditTitle = ({ categoryId, title }) => {
 		setError(false)
 
 		try {
+			// Update title of document in database
 			await db.collection('categories').doc(categoryId).update({
 				'title': newTitle,
 			});

@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { db } from '../firebase'
 
 const useCategory = (categoryId) => {
-	const [title, setTitle] = useState("")
-	const [products, setProducts] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [products, setProducts] = useState([])
+	const [title, setTitle] = useState("")
 
 	useEffect(() => {
+		// Snapshot listener for specific document in 'categories' collection
 		const unSubscribe = db.collection('categories').doc(categoryId)
 			.onSnapshot(async (doc) => {
 				const data = doc.data();
@@ -21,7 +22,7 @@ const useCategory = (categoryId) => {
 			});
 			return unSubscribe
 
-	  }, []);
+	  	}, []);
 	
 	return { loading, products, title }
 }

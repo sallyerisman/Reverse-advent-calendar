@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container, Navbar } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useStorage } from '../contexts/StorageContext'
+import adminIcon from '../assets/images/icon-admin.svg'
+import giftIcon from '../assets/images/icon-gift.svg'
 import logo from '../assets/images/logo-skane_stadsmission.png'
-import gift from '../assets/images/gift.svg'
 
 const Navigation = () => {
     const { currentUser } = useAuth();
@@ -26,19 +27,19 @@ const Navigation = () => {
                     />
                 </Link>
 
-                {currentUser 
-                    ? <NavLink to="/admin/utloggning">Logga ut</NavLink>
-                    : <NavLink to="/admin">Logga in</NavLink>
-                } 
+                {!currentUser && productList &&                 
+                    <span>
+                        {productList.length}
+                        <img src={giftIcon} />
+                    </span>                        
+                }  
 
-                {productList &&                 
-                    <Link to="/">
-                        <span>{productList.length}</span>
-                            <img
-                                src={gift}
-                            />                        
+                {currentUser 
+                    ? <Link to="/admin/utloggning">Logga ut</Link>
+                    : <Link to="/admin">
+                        <img src={adminIcon} />                        
                     </Link>
-                }            
+                }           
             </Container>
         </Navbar>
 	)

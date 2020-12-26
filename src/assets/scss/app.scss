@@ -2,18 +2,9 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-.set-color {
-    color: red
-}
-
 .logout-form {
     display: flex;
     flex-direction: column;
-}
-
-.page-logo {
-    width: 60px;
-    height: auto;
 }
 
 .loading-spinner {
@@ -35,43 +26,52 @@
     color: darkred;
 }
 
+// Logo and icons
 
-// Icons and links
-
-.icon-container {
-    text-align: right;
+.icon__edit {
+    color: green;
 }
+
+.page-logo {
+    width: 80px;
+    height: auto;
+}
+
+// Links
 
 .link__edit-category {
     color: green;
 }
 
-.link__add-input-field {
-    color: green;
-}
 
 // Buttons
+
+.btn__add-category {
+    background-color: #366093;
+    color: white;
+}
 
 .btn__add-product {
     background-color: #366093;
     color: white;
 }
 
-.btn_log-in {
+.btn__delete-product {
     background-color: #366093;
     color: white;
 }
 
-.btn_log-out {
+.btn__log-in {
+    background-color: #366093;
+    color: white;
+}
+
+.btn__log-out {
     background-color: red;
     color: white;
 }
 
-.btn_redirect {
-    background-color: #FFC107;
-}
-
-.btn__add-category {
+.btn__new-category {
     background-color: #366093;
     color: white;
 }

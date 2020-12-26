@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Col, Row } from 'react-bootstrap'
+import { Button, Card, Col, Row } from 'react-bootstrap'
+import editIcon from '../assets/images/icon-edit.svg'
 import { useAuth } from '../contexts/AuthContext'
 import useDeleteCategory from '../hooks/useDeleteCategory'
 
@@ -19,18 +20,29 @@ const CategoryGrid = ({ categories }) => {
 				{categories.map(category => (
 					<Card key={category.id}>
 						<Card.Body>
-							<Card.Title>
-								<Link to={`/donera/${category.id}`}>{category.title}</Link>
-							</Card.Title>
-							{currentUser && (
-								<div>
-									<Link to={`/admin/redigera/${category.id}`} className="link__edit-category">Redigera 🖋</Link>
+							{currentUser 
+								? <>
+									<Card.Title>{category.title}</Card.Title>
+									<div>
+										<Link 	
+											to={`/admin/redigera/${category.id}`} 
+											className="link link__edit-category">
+											Redigera
+											<img
+												src={editIcon}
+												className="icon icon__edit"
+											/>
+										</Link>
 
-									<span onClick={() => {handleDeleteCategory(category.id)}}>
-										Ta bort
-									</span>
-								</div>
-							)}
+										<Button onClick={() => {handleDeleteCategory(category.id)}}>
+											Ta bort
+										</Button>
+									</div>
+								</>
+								: <Card.Title>
+									<Link to={`/donera/${category.id}`}>{category.title}</Link>
+								</Card.Title>
+							}
 						</Card.Body>
 					</Card>
 				))}

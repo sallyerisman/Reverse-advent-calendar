@@ -45,7 +45,7 @@ const Login = () => {
 						<Form.Control type="password" ref={passwordRef} required />
 					</Form.Group>
 
-					<Button disabled={loading} type="submit" className="btn_log-in">Logga in</Button>
+					<Button disabled={loading} type="submit" className="btn btn__log-in">Logga in</Button>
 				</Form>
 
 				<Link to="/admin/aterstall-losenord">Glömt ditt lösenord?</Link>

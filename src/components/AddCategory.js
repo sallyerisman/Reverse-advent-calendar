@@ -24,6 +24,7 @@ const AddCategory = () => {
 		setLoading(true)
 
 		try {
+			// Add document with the specified title to 'categories' collection 
 			await db.collection('categories').add({
 				title,
 			})
@@ -53,7 +54,7 @@ const AddCategory = () => {
 						}
 
 					</Form.Group>
-					<Button disabled={loading} type="submit">Skapa kategori</Button>
+					<Button disabled={loading} className="btn btn__add-category" type="submit">Skapa kategori</Button>
 				</Form>
 			</Col>
 		</Row>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Alert, Button, Form, Row } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import { db } from '../firebase'
 
 const AddProduct = ({ categoryId, products, title }) => {
@@ -20,6 +20,7 @@ const AddProduct = ({ categoryId, products, title }) => {
 		setLoading(true)
 
 		try {
+			// Add product to the specified document
 			await db.collection('categories').doc(categoryId).set({
 				title,
 				products: [...products, product]
@@ -36,6 +37,8 @@ const AddProduct = ({ categoryId, products, title }) => {
 
 	return (
 		<>
+			{error && <Alert variant="danger">{error}</Alert>}
+
 			<Form.Group id="product">
 				<Form.Label>Namn på produkten</Form.Label>
 				<Form.Control type="product" onChange={handleProductChange} value={product} />
@@ -44,7 +47,7 @@ const AddProduct = ({ categoryId, products, title }) => {
 					<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
 				}					
 			</Form.Group>
-			<Button disabled={loading} onClick={handleAddProduct}>Lägg till</Button>
+			<Button disabled={loading} className="btn btn__add-product" onClick={handleAddProduct}>Lägg till</Button>
 		</>
 	)
 }

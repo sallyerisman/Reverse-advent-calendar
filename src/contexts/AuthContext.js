@@ -25,7 +25,7 @@ const AuthContextProvider = (props) => {
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
-			// Auth state change (loging in/out)
+			// Auth state change (logging in/out)
 			setCurrentUser(user)
 			setLoading(false)
 		})

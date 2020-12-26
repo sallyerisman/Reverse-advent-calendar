@@ -20,7 +20,7 @@ const Categories = () => {
 				}
 
 				{currentUser && 
-					<Link to='/admin/ny-kategori' className="btn btn__add-category">Lägg till ny kategori</Link>
+					<Link to='/admin/ny-kategori' className="btn btn__new-category">Lägg till ny kategori</Link>
 				}
 			</Col>
 		</Row>
