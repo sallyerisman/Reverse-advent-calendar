@@ -1,29 +1,29 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Card, Col, Row } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import editIcon from '../assets/images/icon-edit.svg'
 import { useAuth } from '../contexts/AuthContext'
-import useDeleteCategory from '../hooks/useDeleteCategory'
+import ConfirmDelete from './ConfirmDelete'
 
 const CategoryGrid = ({ categories }) => {
 	const { currentUser } = useAuth()
-	const [deleteCategory, setDeleteCategory] = useState(null);
-	useDeleteCategory(deleteCategory);
+	const [confirmDelete, setConfirmDelete] = useState(null);
 
-	const handleDeleteCategory = (categoryId) => {
-		setDeleteCategory(categoryId);
+	const handleDeleteCategory = (category) => {
+		setConfirmDelete(category)
 	}
 
 	return (
-		<Row>
-			<Col>
-				{categories.map(category => (
-					<Card key={category.id}>
-						<Card.Body>
-							{currentUser 
-								? <>
-									<Card.Title>{category.title}</Card.Title>
-									<div>
+		<>
+			{confirmDelete 
+				? <ConfirmDelete category={confirmDelete}/>
+				: <>
+					{categories.map(category => (
+						<Card key={category.id}>
+							<Card.Body>
+								{currentUser 
+									? <>
+										<Card.Title>{category.title}</Card.Title>
 										<Link 	
 											to={`/admin/redigera/${category.id}`} 
 											className="link link__edit-category">
@@ -34,20 +34,24 @@ const CategoryGrid = ({ categories }) => {
 											/>
 										</Link>
 
-										<Button onClick={() => {handleDeleteCategory(category.id)}}>
+										<Button onClick={() => {handleDeleteCategory(category)}}>
 											Ta bort
 										</Button>
-									</div>
-								</>
-								: <Card.Title>
-									<Link to={`/donera/${category.id}`}>{category.title}</Link>
-								</Card.Title>
-							}
-						</Card.Body>
-					</Card>
-				))}
-			</Col>
-		</Row>
+									</>
+									: <Card.Title>
+										<Link to={`/donera/${category.id}`}>{category.title}</Link>
+									</Card.Title>
+								}
+							</Card.Body>
+						</Card>
+					))}
+
+					{currentUser && 
+						<Link to='/admin/ny-kategori' className="btn btn__new-category">Lägg till ny kategori</Link>
+					}
+				</>
+			}
+		</>
 	)
 }
 

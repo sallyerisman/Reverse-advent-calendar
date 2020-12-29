@@ -7,8 +7,10 @@ import StorageContextProvider from './contexts/StorageContext'
 
 import AddCategory from './components/AddCategory'
 import AuthRoute from './components/AuthRoute'
+import Booking from './components/Booking'
 import Categories from './components/Categories'
 import Category from './components/Category'
+import Contact from './components/Contact'
 import DonationList from './components/DonationList'
 import ForgotPassword from './components/ForgotPassword'
 import Home from './components/Home'
@@ -23,10 +25,18 @@ const App = () => {
 			<AuthContextProvider>
 				<StorageContextProvider>
 					<Navigation />
-					<Container className="site-layout">
+					<Container className="main-content">
 						<Routes>
 							<Route path="/">
 								<Home />
+							</Route>
+
+							<Route path="/upphamtning">
+								<Booking />
+							</Route>
+							
+							<Route path="/inlamning">
+								<Contact />
 							</Route>
 
 							<Route path="/donera">

@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 import { db } from '../firebase'
 
 const AddCategory = () => {
 	const [error, setError] = useState(false)
+	const [titleExists, setTitleExists] = useState(false)
 	const [loading, setLoading] = useState(false)
 	const navigate = useNavigate()
 	const [title, setTitle] = useState("")
@@ -23,10 +24,31 @@ const AddCategory = () => {
 		setError(false)
 		setLoading(true)
 
+		let exists;
+		// Check if the 'categories' collection already has a document with this title 
+		await db.collection('categories')
+			.where('title', '==', title)
+			.get()
+			.then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				exists = true;
+			});
+		});
+
+		if (exists) {
+			setLoading(false)
+			setTitleExists(true)
+			return;				
+		} 
+
 		try {
-			// Add document with the specified title to 'categories' collection 
+			setLoading(true)
+
+			const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1)
+
+			// Add document with the specified title to the collection 
 			await db.collection('categories').add({
-				title,
+				title: capitalizedTitle
 			})
 
 			navigate('/admin/redigera')
@@ -34,7 +56,7 @@ const AddCategory = () => {
 		} catch (e) {
 			setError("Något gick fel och kategorin kunde inte läggas till. Var god försök igen.")
 			setLoading(false)
-		}
+		}		
 	}
 
 	return (
@@ -51,6 +73,13 @@ const AddCategory = () => {
 
 						{title && title.length < 3 && 
 							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
+						}
+
+						{titleExists && 
+							<>
+								<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
+								<Link to='/admin/redigera'>Tillbaka till redigeringsvyn</Link>
+							</>
 						}
 
 					</Form.Group>

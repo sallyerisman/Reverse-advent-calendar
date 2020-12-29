@@ -14,7 +14,7 @@ const Navigation = () => {
 
     useEffect(() => {
 		setProductList(retrieveFromStorage('products'));
-	}, [changes]);
+    }, [changes]);
 
 	return (
         <Navbar>
@@ -30,7 +30,7 @@ const Navigation = () => {
                 {!currentUser && productList &&                 
                     <span>
                         {productList.length}
-                        <img src={giftIcon} />
+                        <img src={giftIcon}/>
                     </span>                        
                 }  
 

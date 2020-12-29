@@ -12,9 +12,13 @@
 }
 
 // Layout
-.site-layout {
+.main-content {
     display: flex;
     justify-content: space-between;
+}
+
+.sidebar {
+    min-height: 100vh;
 }
 
 

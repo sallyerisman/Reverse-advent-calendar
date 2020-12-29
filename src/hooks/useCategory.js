@@ -15,7 +15,7 @@ const useCategory = (categoryId) => {
 				if (!data) {
 					return;
 				} else {	
-					await data.products && setProducts(Object.values(data.products));					
+					await data.products && setProducts(Object.values(data.products).sort());					
 					setTitle(await data.title);
 					setLoading(false)
 				}
