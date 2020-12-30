@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
-import { useAuth } from '../contexts/AuthContext'
-import useCategory from '../hooks/useCategory'
+import { useAuth } from '../../contexts/AuthContext'
+import useCategory from '../../hooks/useCategory'
 import CategoryContent from './CategoryContent'
 import EditCategory from './EditCategory'
-import NotFound from './NotFound'
+import NotFound from '../NotFound'
 
 const Category = () => {
 	const { currentUser } = useAuth()

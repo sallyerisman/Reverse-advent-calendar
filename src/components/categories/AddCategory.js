@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 
 const AddCategory = () => {
 	const [error, setError] = useState(false)

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
-import { useStorage } from '../contexts/StorageContext'
-import useDeleteProduct from '../hooks/useDeleteProduct'
+import { useAuth } from '../../contexts/AuthContext'
+import { useStorage } from '../../contexts/StorageContext'
+import useDeleteProduct from '../../hooks/useDeleteProduct'
 
 const CategoryContent = ({ categoryId, products }) => {
 	const { addToStorage, changes, retrieveFromStorage } = useStorage()

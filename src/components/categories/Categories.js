@@ -1,6 +1,6 @@
 import { Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
-import useCategories from '../hooks/useCategories'
+import useCategories from '../../hooks/useCategories'
 import CategoryGrid from './CategoryGrid'
 
 const Categories = () => {

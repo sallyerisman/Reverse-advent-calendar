@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Alert, Button, Form } from 'react-bootstrap'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 
 const EditTitle = ({ category }) => {
 	const [error, setError] = useState(false)

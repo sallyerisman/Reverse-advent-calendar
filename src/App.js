@@ -5,11 +5,10 @@ import './assets/scss/app.scss'
 import AuthContextProvider from './contexts/AuthContext'
 import StorageContextProvider from './contexts/StorageContext'
 
-// import AddCategory from './components/AddCategory'
 import AuthRoute from './components/AuthRoute'
 import Booking from './components/Booking'
-import Categories from './components/Categories'
-import Category from './components/Category'
+import Categories from './components/categories/Categories'
+import Category from './components/categories/Category'
 import Contact from './components/Contact'
 import DonationList from './components/DonationList'
 import ForgotPassword from './components/ForgotPassword'
@@ -58,10 +57,6 @@ const App = () => {
 									<Route path="/aterstall-losenord">
 										<ForgotPassword />
 									</Route>
-
-									{/* <AuthRoute path="/ny-kategori">
-										<AddCategory />
-									</AuthRoute> */}
 
 									<AuthRoute path="/redigera">
 										<Route path="/">

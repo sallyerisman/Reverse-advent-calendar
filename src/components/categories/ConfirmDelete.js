@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
-import useDeleteCategory from '../hooks/useDeleteCategory'
+import useDeleteCategory from '../../hooks/useDeleteCategory'
 
 const ConfirmDelete = ({ category }) => {	
 	const [deleteCategory, setDeleteCategory] = useState(null)

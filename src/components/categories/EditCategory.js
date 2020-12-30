@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
-import useCategory from '../hooks/useCategory'
+import useCategory from '../../hooks/useCategory'
 import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
 import EditTitle from './EditTitle'

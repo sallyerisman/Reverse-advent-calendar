@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
-import editIcon from '../assets/images/icon-edit.svg'
-import { useAuth } from '../contexts/AuthContext'
+import editIcon from '../../assets/images/icon-edit.svg'
+import { useAuth } from '../../contexts/AuthContext'
 import AddCategory from './AddCategory'
 import ConfirmDelete from './ConfirmDelete'
 

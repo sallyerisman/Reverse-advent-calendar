@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 
 const AddProduct = ({ category }) => {
 	const [error, setError] = useState(false)
