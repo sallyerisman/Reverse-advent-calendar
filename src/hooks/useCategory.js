@@ -9,7 +9,8 @@ const useCategory = () => {
 	const [notFound, setNotFound] = useState(false)
 	const [category, setCategory] = useState({})
 
-	useEffect(async () => {		
+	useEffect(() => {	
+		async function getCategory() {	
 			let documentId; 
 
 			await db.collection('categories')
@@ -42,7 +43,9 @@ const useCategory = () => {
 
 					setLoading(false)
 				}
-			});	
+			});
+		}
+		getCategory()	
 	}, []);
 
 	return { category, loading, notFound }
