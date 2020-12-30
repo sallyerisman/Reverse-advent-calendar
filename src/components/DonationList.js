@@ -16,7 +16,7 @@ const DonationList = () => {
 	}
 
 	return (
-		<Row className="sidebar">
+		<Row>
 			{productList && productList.length > 0 && 
 				<Col>
 					{donationComplete 

@@ -25,44 +25,22 @@ const App = () => {
 			<AuthContextProvider>
 				<StorageContextProvider>
 					<Navigation />
-					<Container className="main-content">
-						<Routes>
-							<Route path="/">
-								<Home />
-							</Route>
-
-							<Route path="/upphamtning">
-								<Booking />
-							</Route>
-							
-							<Route path="/inlamning">
-								<Contact />
-							</Route>
-
-							<Route path="/donera">
+					<Container className="site-layout">
+						<div className="main">
+							<Routes>
 								<Route path="/">
-									<Categories />
+									<Home />
 								</Route>
 
-								<Route path="/:categoryId">
-									<Category />
+								<Route path="/upphamtning">
+									<Booking />
 								</Route>
-							</Route>
-
-							<Route path="/admin">
-								<Route path="/">
-									<Login />
+								
+								<Route path="/inlamning">
+									<Contact />
 								</Route>
 
-								<Route path="/aterstall-losenord">
-									<ForgotPassword />
-								</Route>
-
-								<AuthRoute path="/ny-kategori">
-									<AddCategory />
-								</AuthRoute>
-
-								<AuthRoute path="/redigera">
+								<Route path="/donera">
 									<Route path="/">
 										<Categories />
 									</Route>
@@ -70,16 +48,42 @@ const App = () => {
 									<Route path="/:categoryId">
 										<Category />
 									</Route>
-								</AuthRoute>
+								</Route>
 
-								<AuthRoute path="/utloggning">
-									<Logout />								
-								</AuthRoute>
-							</Route>
+								<Route path="/admin">
+									<Route path="/">
+										<Login />
+									</Route>
 
-							<Route path="*" element={<NotFound />} />
-						</Routes>
-						<DonationList />
+									<Route path="/aterstall-losenord">
+										<ForgotPassword />
+									</Route>
+
+									<AuthRoute path="/ny-kategori">
+										<AddCategory />
+									</AuthRoute>
+
+									<AuthRoute path="/redigera">
+										<Route path="/">
+											<Categories />
+										</Route>
+
+										<Route path="/:categoryId">
+											<Category />
+										</Route>
+									</AuthRoute>
+
+									<AuthRoute path="/utloggning">
+										<Logout />								
+									</AuthRoute>
+								</Route>
+
+								<Route path="*" element={<NotFound />} />
+							</Routes>
+						</div>
+						<div className="sidebar">
+							<DonationList />
+						</div>
 					</Container>
 				</StorageContextProvider>
 			</AuthContextProvider>

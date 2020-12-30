@@ -16,6 +16,11 @@ const Navigation = () => {
 		setProductList(retrieveFromStorage('products'));
     }, [changes]);
 
+    const handleToggleDisplay = () => {
+        const sidebar = document.getElementsByClassName('sidebar');
+        sidebar[0].classList.toggle('hide');
+    }
+
 	return (
         <Navbar>
             <Container>
@@ -30,7 +35,10 @@ const Navigation = () => {
                 {!currentUser && productList &&                 
                     <span>
                         {productList.length}
-                        <img src={giftIcon}/>
+                        <img 
+                            className="icon__gift"
+                            src={giftIcon} 
+                            onClick={handleToggleDisplay}/>
                     </span>                        
                 }  
 
