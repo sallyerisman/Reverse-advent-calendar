@@ -5,7 +5,7 @@ import './assets/scss/app.scss'
 import AuthContextProvider from './contexts/AuthContext'
 import StorageContextProvider from './contexts/StorageContext'
 
-import AddCategory from './components/AddCategory'
+// import AddCategory from './components/AddCategory'
 import AuthRoute from './components/AuthRoute'
 import Booking from './components/Booking'
 import Categories from './components/Categories'
@@ -45,7 +45,7 @@ const App = () => {
 										<Categories />
 									</Route>
 
-									<Route path="/:categoryId">
+									<Route path="/:categoryUrl">
 										<Category />
 									</Route>
 								</Route>
@@ -59,16 +59,16 @@ const App = () => {
 										<ForgotPassword />
 									</Route>
 
-									<AuthRoute path="/ny-kategori">
+									{/* <AuthRoute path="/ny-kategori">
 										<AddCategory />
-									</AuthRoute>
+									</AuthRoute> */}
 
 									<AuthRoute path="/redigera">
 										<Route path="/">
 											<Categories />
 										</Route>
 
-										<Route path="/:categoryId">
+										<Route path="/:categoryUrl">
 											<Category />
 										</Route>
 									</AuthRoute>

@@ -6,10 +6,11 @@ import AddProduct from './AddProduct'
 import CategoryContent from './CategoryContent'
 import EditTitle from './EditTitle'
 
-const EditCategory = ({ categoryId }) => {
+const EditCategory = () => {
 	const [addProduct, setAddProduct] = useState(false);
 	const [editTitle, setEditTitle] = useState(false);
-	const { loading, products, title } = useCategory(categoryId)
+	const { category, loading } = useCategory()
+	const { id, products } = category
 	
 	const handleAddProduct = () => {
         setAddProduct(true);
@@ -26,17 +27,17 @@ const EditCategory = ({ categoryId }) => {
 					? <DotLoader className="loading-spinner"/>
 					: <>
 						{editTitle 
-							? <EditTitle categoryId={categoryId} title={title}/> 
-							: <h2>{title} <span onClick={handleEditTitle}>🖋</span></h2>
+							? <EditTitle category={category}/> 
+							: <h2>{category.title} <span onClick={handleEditTitle}>🖋</span></h2>
 						}
 
-						{products.length < 1 
+						{category.products.length < 1 
 							? <div>Just nu finns det inga produkter i denna kategori</div>
-							: <CategoryContent categoryId={categoryId} products={products} />					
+							: <CategoryContent categoryId={id} products={products} />					
 						}
 			
 						{addProduct 
-							? <AddProduct categoryId={categoryId} products={products} title={title}/>
+							? <AddProduct category={category}/>
 							: <Button onClick={handleAddProduct} type="button">Lägg till produkt</Button>
 						}
 					</> 

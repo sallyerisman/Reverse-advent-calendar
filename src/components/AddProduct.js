@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
 import { db } from '../firebase'
 
-const AddProduct = ({ categoryId, products, title }) => {
+const AddProduct = ({ category }) => {
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
 	const [product, setProduct] = useState("")
 	const [productExists, setProductExists] = useState(false)
+	const { id, products, title, urlParam } = category
 
 	const handleProductChange = (e) => {
 		setProductExists(false)
@@ -21,7 +22,9 @@ const AddProduct = ({ categoryId, products, title }) => {
 		setError(false)
 		setLoading(true)
 
-		if (products.includes(product)) {
+		const capitalizedProduct = product.charAt(0).toUpperCase() + product.slice(1)
+
+		if (products.includes(capitalizedProduct)) {
 			setLoading(false)
 			setProductExists(true)
 			return;
@@ -30,12 +33,11 @@ const AddProduct = ({ categoryId, products, title }) => {
 		try {
 			setLoading(true)
 
-			const capitalizedProduct = product.charAt(0).toUpperCase() + product.slice(1)
-
 			// Add product to the specified document
-			await db.collection('categories').doc(categoryId).set({
+			await db.collection('categories').doc(id).set({
 				title,
-				products: [...products, capitalizedProduct]
+				products: [...products, capitalizedProduct],
+				urlParam,				
 			});
 
 			setLoading(false)
@@ -53,7 +55,7 @@ const AddProduct = ({ categoryId, products, title }) => {
 
 			<Form.Group id="product">
 				<Form.Label>Namn på produkten</Form.Label>
-				<Form.Control type="product" onChange={handleProductChange} value={product} />
+				<Form.Control type="product" onChange={handleProductChange} value={product} autoFocus />
 				
 				{product && product.length < 2 && 
 					<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>

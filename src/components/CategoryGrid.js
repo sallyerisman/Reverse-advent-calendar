@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap'
 import editIcon from '../assets/images/icon-edit.svg'
 import { useAuth } from '../contexts/AuthContext'
+import AddCategory from './AddCategory'
 import ConfirmDelete from './ConfirmDelete'
 
 const CategoryGrid = ({ categories }) => {
 	const { currentUser } = useAuth()
+	const [addCategory, setAddCategory] = useState(false);
 	const [confirmDelete, setConfirmDelete] = useState(null);
+
+	const handleAddCategory = () => {
+        setAddCategory(true);
+	};
 
 	const handleDeleteCategory = (category) => {
 		setConfirmDelete(category)
@@ -25,7 +31,7 @@ const CategoryGrid = ({ categories }) => {
 									? <>
 										<Card.Title>{category.title}</Card.Title>
 										<Link 	
-											to={`/admin/redigera/${category.id}`} 
+											to={`/admin/redigera/${category.urlParam}`} 
 											className="link link__edit-category">
 											Redigera
 											<img
@@ -39,15 +45,16 @@ const CategoryGrid = ({ categories }) => {
 										</Button>
 									</>
 									: <Card.Title>
-										<Link to={`/donera/${category.id}`}>{category.title}</Link>
+										<Link to={`/donera/${category.urlParam}`}>{category.title}</Link>
 									</Card.Title>
 								}
 							</Card.Body>
 						</Card>
 					))}
 
-					{currentUser && 
-						<Link to='/admin/ny-kategori' className="btn btn__new-category">Lägg till ny kategori</Link>
+					{currentUser && addCategory 
+						? <AddCategory />
+						: <Button onClick={handleAddCategory} type="button">Skapa ny kategori</Button>
 					}
 				</>
 			}

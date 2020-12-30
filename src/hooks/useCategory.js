@@ -1,30 +1,51 @@
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { db } from '../firebase'
 
-const useCategory = (categoryId) => {
-	const [loading, setLoading] = useState(true)
-	const [products, setProducts] = useState([])
-	const [title, setTitle] = useState("")
+const useCategory = () => {
+	const { categoryUrl } = useParams()
 
-	useEffect(() => {
-		// Snapshot listener for specific document in 'categories' collection
-		const unSubscribe = db.collection('categories').doc(categoryId)
+	const [loading, setLoading] = useState(true)
+	const [notFound, setNotFound] = useState(false)
+	const [category, setCategory] = useState({})
+
+	useEffect(async () => {		
+			let documentId; 
+
+			await db.collection('categories')
+			.where('urlParam', '==', categoryUrl)
+			.get()
+			.then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				documentId = doc.id;
+				});
+			});
+
+			if (!documentId) {
+				setNotFound(true)
+				return;				
+			} 
+
+			db.collection('categories').doc(documentId)
 			.onSnapshot(async (doc) => {
 				const data = doc.data();
 
 				if (!data) {
 					return;
-				} else {	
-					await data.products && setProducts(Object.values(data.products).sort());					
-					setTitle(await data.title);
+				} else {
+					setCategory({
+						products: await data.products && data.products.sort(),
+						title: await data.title,
+						id: doc.id,
+						urlParam: categoryUrl,
+					})
+
 					setLoading(false)
 				}
-			});
-			return unSubscribe
+			});	
+	}, []);
 
-	  	}, []);
-	
-	return { loading, products, title }
+	return { category, loading, notFound }
 }
 
 export default useCategory

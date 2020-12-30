@@ -5,12 +5,13 @@ import { db } from '../firebase'
 
 const AddCategory = () => {
 	const [error, setError] = useState(false)
-	const [titleExists, setTitleExists] = useState(false)
 	const [loading, setLoading] = useState(false)
-	const navigate = useNavigate()
 	const [title, setTitle] = useState("")
+	const [titleExists, setTitleExists] = useState(false)
+	const navigate = useNavigate()
 
 	const handleTitleChange = (e) => {
+		setTitleExists(false)
 		setTitle(e.target.value)
 	}
 
@@ -24,10 +25,12 @@ const AddCategory = () => {
 		setError(false)
 		setLoading(true)
 
+		const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1)
 		let exists;
+		
 		// Check if the 'categories' collection already has a document with this title 
 		await db.collection('categories')
-			.where('title', '==', title)
+			.where('title', '==', capitalizedTitle)
 			.get()
 			.then(querySnapshot => {
 			querySnapshot.forEach(doc => {
@@ -44,11 +47,18 @@ const AddCategory = () => {
 		try {
 			setLoading(true)
 
-			const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1)
+			const urlifiedTitle = title
+				.toLowerCase()
+				.replace(/\s+/g, '-')
+				.replace(/å/g, 'a')
+				.replace(/ä/g, 'a')
+				.replace(/ö/g, 'o');
 
 			// Add document with the specified title to the collection 
 			await db.collection('categories').add({
-				title: capitalizedTitle
+				products: [],
+				title: capitalizedTitle,
+				urlParam: urlifiedTitle,
 			})
 
 			navigate('/admin/redigera')
@@ -69,7 +79,7 @@ const AddCategory = () => {
 				<Form onSubmit={handleSubmit}>
 					<Form.Group id="title">
 						<Form.Label>Namn på kategorin</Form.Label>
-						<Form.Control type="title" onChange={handleTitleChange} value={title} required />
+						<Form.Control type="title" onChange={handleTitleChange} value={title} autoFocus required />
 
 						{title && title.length < 3 && 
 							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
@@ -83,7 +93,7 @@ const AddCategory = () => {
 						}
 
 					</Form.Group>
-					<Button disabled={loading} className="btn btn__add-category" type="submit">Skapa kategori</Button>
+					<Button disabled={loading} className="btn btn__add-category" type="submit">Spara</Button>
 				</Form>
 			</Col>
 		</Row>
