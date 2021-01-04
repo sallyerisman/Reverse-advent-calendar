@@ -4,51 +4,35 @@ import { db } from '../firebase'
 
 const useCategory = () => {
 	const { categoryUrl } = useParams()
-
-	const [loading, setLoading] = useState(true)
-	const [notFound, setNotFound] = useState(false)
 	const [category, setCategory] = useState({})
+	const [loading, setLoading] = useState(true)
 
-	useEffect(() => {	
-		async function getCategory() {	
-			let documentId; 
-
-			await db.collection('categories')
+	useEffect(() => {
+		const unsubscribe = db.collection('categories')
 			.where('urlParam', '==', categoryUrl)
-			.get()
-			.then(querySnapshot => {
-			querySnapshot.forEach(doc => {
-				documentId = doc.id;
-				});
-			});
+			.onSnapshot(querySnapshot => {
+				querySnapshot.forEach(doc => {	
+					const documentId = doc.id;
+					const data = doc.data();
 
-			if (!documentId) {
-				setNotFound(true)
-				return;				
-			} 
-
-			db.collection('categories').doc(documentId)
-			.onSnapshot(async (doc) => {
-				const data = doc.data();
-
-				if (!data) {
-					return;
-				} else {
-					setCategory({
-						products: await data.products && data.products.sort(),
-						title: await data.title,
-						id: doc.id,
-						urlParam: categoryUrl,
-					})
+					if (!data) {
+						return;
+					} else {
+						setCategory({
+							products: data.products && data.products.sort(),
+							title: data.title,
+							id: documentId,
+							urlParam: categoryUrl,
+						})
+					};
 
 					setLoading(false)
-				}
-			});
-		}
-		getCategory()	
-	}, []);
+				});
+			})
+		return unsubscribe
+	}, [])
 
-	return { category, loading, notFound }
+	return { category, loading }
 }
 
 export default useCategory

@@ -9,12 +9,12 @@ import NotFound from '../NotFound'
 
 const Category = () => {
 	const { currentUser } = useAuth()
-	const { category, loading, notFound } = useCategory()
+	const { category, loading } = useCategory()
 
 	return (
 		<Row>
 			<Col>
-			{notFound 
+			{!category.id 
 				? <NotFound />
 				: loading
 					? <DotLoader className="loading-spinner"/>

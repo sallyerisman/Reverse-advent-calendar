@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { db } from '../firebase'
 
 const useDeleteProduct = (categoryId, deleteProduct, products) => {
-
 	useEffect(() => {
 		if (!deleteProduct) {
 			return;
