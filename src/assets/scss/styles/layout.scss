@@ -15,9 +15,9 @@ html {
 
 body {
 	min-height: 100vh;
-	background-image: url('../../images/city-night-home.jpg');
+	background-image: url('../../images/city-night.jpg');
 	background-size: cover;
-	background-position: center bottom;
+	background-position: left bottom;
 }
 
 .container {
@@ -40,10 +40,52 @@ body {
 }
 
 .site-container {
-	padding-top: 2rem;
+	padding-top: 3rem;
 	padding-bottom: 100px;
 	margin-bottom: 100px;
+	display: flex;
+    flex-direction: column;
 	
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		padding-top: 3rem;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		padding-top: 3.5rem;
+	}
+}
+
+.main {
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 100%;
+	}
+}
+
+.sidebar {
+    min-height: 100vh;
+    display: block;
+
+    &.hide {
+        display: none;
+	}
+	
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 40%;
+	}
+}
+
+// Page-specific layout styles
+
+.page__add-category,
+.page__add-product {
+	padding-top: 3rem;
+
 	// Tablet
 	@media only screen and (min-width: 768px) {
 		padding-top: 3rem;
@@ -52,6 +94,24 @@ body {
 	// Desktop 
 	@media only screen and (min-width: 992px) {
 		padding-top: 3.5rem;
+	}
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.donation-list {
+	display: flex;
+	flex-direction: column;
+
+	.list-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px dotted $faded-white;
+		margin-bottom: 0.5rem;
 	}
 }
 

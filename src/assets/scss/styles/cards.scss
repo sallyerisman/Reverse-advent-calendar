@@ -1,16 +1,13 @@
 @import 'styles/colors';
 
-/* Navbar */
+/* Cards */
 
-.navigation {
-	background-color: transparent;
-	padding-top: 1.6rem;
+.card {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-
-
-
-
-

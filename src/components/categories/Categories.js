@@ -1,19 +1,24 @@
 import { Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
+import { useAuth } from '../../contexts/AuthContext'
 import useCategories from '../../hooks/useCategories'
-import CategoryGrid from './CategoryGrid'
+import AdminCategoryGrid from './admin/AdminCategoryGrid'
+import CategoryGrid from './visitor/CategoryGrid'
 
 const Categories = () => {
 	const { categories, loading } = useCategories()
+	const { currentUser } = useAuth()
 
 	return (
 		<Row>
 			<Col>
-				<h2>Vad vi behöver just nu</h2>
+				<h1>Vad vi behöver just nu</h1>
 
 				{loading
-					? <DotLoader className="loading-spinner"/>
-					: <CategoryGrid categories={categories} />
+					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
+					: currentUser 
+						? <AdminCategoryGrid categories={categories} />
+						: <CategoryGrid categories={categories} />
 				}
 			</Col>
 		</Row>

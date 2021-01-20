@@ -28,8 +28,8 @@ const ForgotPassword = () => {
 
 	return (
 		<Row>
-			<Col>
-				<h2>Har du glömt ditt lösenord?</h2>
+			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+				<h1>Har du glömt ditt lösenord?</h1>
 
 				{error && <Alert variant="danger">{error}</Alert>}
 				{message && <Alert variant="success">{message}</Alert>}
@@ -39,8 +39,10 @@ const ForgotPassword = () => {
 						<Form.Label>Din mejladress</Form.Label>
 						<Form.Control type="email" ref={emailRef} required />
 					</Form.Group>
-
-					<Button disabled={loading} type="submit">Återställ lösenord</Button>
+					
+					<div className="button-wrapper">						
+						<Button disabled={loading} type="submit" className="button__primary">Återställ lösenord</Button>	
+					</div>	
 				</Form>
 
 				<Link to="/admin">Tillbaka till inloggningssidan</Link>

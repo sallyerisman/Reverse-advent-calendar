@@ -3,6 +3,10 @@
 
 /* Links */
 
+.navlink-wrapper {
+	display: flex;
+}
+
 .link {
 	color: $signature-blue--bright;
 	text-decoration: none;
@@ -15,8 +19,10 @@
 
 .text-link {
 	font-weight: 400;
+	color: white;
 
 	&:hover { 
+		color: $signature-blue--bright;
 		text-decoration: none; 	
 	}
 }

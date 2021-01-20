@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Alert, Button, Form } from 'react-bootstrap'
-import { db } from '../../firebase'
+import { db } from '../../../firebase'
 
 const EditTitle = ({ category }) => {
 	const [error, setError] = useState(false)
@@ -85,9 +85,13 @@ const EditTitle = ({ category }) => {
 							<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
 						</>
 					}
-
 				</Form.Group>
-				<Button  disabled={loading} type="submit">Uppdatera</Button>
+
+				<div className="button-wrapper">
+					<Button className="btn button__primary" disabled={loading} type="submit">
+						Uppdatera
+					</Button>								
+				</div>
 			</Form>
 		</>
 	)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
-import { db } from '../../firebase'
+import { db } from '../../../firebase'
 
 const AddCategory = () => {
 	const [error, setError] = useState(false)
@@ -70,7 +70,7 @@ const AddCategory = () => {
 	}
 
 	return (
-		<Row>
+		<Row className="page page__add-category">
 			<Col>
 				<h2>Skapa ny kategori</h2>
 
@@ -91,9 +91,11 @@ const AddCategory = () => {
 								<Link to='/admin/redigera'>Tillbaka till redigeringsvyn</Link>
 							</>
 						}
-
 					</Form.Group>
-					<Button disabled={loading} className="btn btn__add-category" type="submit">Spara</Button>
+
+					<div className="button-wrapper">
+						<Button disabled={loading} className="btn button__primary" type="submit">Lägg till</Button>
+					</div>
 				</Form>
 			</Col>
 		</Row>

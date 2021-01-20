@@ -29,8 +29,8 @@ const Login = () => {
 
 	return (
 		<Row>
-			<Col>
-				<h2>Logga in</h2>
+			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+				<h1>Logga in</h1>
 
 				{error && <Alert variant="danger">{error}</Alert>}
 
@@ -45,7 +45,9 @@ const Login = () => {
 						<Form.Control type="password" ref={passwordRef} required />
 					</Form.Group>
 
-					<Button disabled={loading} type="submit" className="btn btn__log-in">Logga in</Button>
+					<div className="button-wrapper">						
+						<Button disabled={loading} type="submit" className="button__primary">Logga in</Button>
+					</div>
 				</Form>
 
 				<Link to="/admin/aterstall-losenord">Glömt ditt lösenord?</Link>

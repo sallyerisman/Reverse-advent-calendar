@@ -1,0 +1,56 @@
+@import 'styles/colors';
+
+/* Buttons */
+
+.button-wrapper {
+	text-align: right;
+}
+
+.btn {
+	margin: 1rem 0;
+	padding: 0.5rem 0.8rem;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.button__primary {
+	color: white;
+	background-color: $button-primary;
+	border: $button-primary-border;
+
+	&:visited,
+	&:hover,
+	&:focus,
+	&.btn-primary:not(:disabled):not(.disabled):active {
+		background-color: $button-primary-hover;
+		border: $button-primary-border;
+		box-shadow: $button-primary-box-shadow;
+	}
+}
+
+.button__secondary {
+	color: white;
+	background-color: $button-secondary;
+	border: $button-secondary-border;
+
+	&:visited,
+	&:hover,
+	&:focus,
+	&.btn-secondary:not(:disabled):not(.disabled):active {
+		background-color: $button-secondary-hover;
+		border: $button-secondary-border;
+		box-shadow: $button-secondary-box-shadow;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

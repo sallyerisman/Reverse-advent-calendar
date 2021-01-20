@@ -5,15 +5,25 @@
 .icon-wrapper {
 	display: flex;
 	align-items: center;
+
+	&.icon-wrapper__gift {
+		color: $signature-blue--bright;
+	}
 }
 
 .icon {
+	color: white;
+	cursor: pointer;
+}
+
+.icon--nav {
 	color: $signature-blue--bright;
 }
 
 .icon__admin {
 	width: 120%;
 	height: auto;
+	margin-left: 2rem;
 
 	&:hover { 
 		font-size: 1.2rem;
@@ -26,10 +36,34 @@
 	}
 }
 
+.icon__arrow-left {
+	margin-right: 0.6rem;
+}
+
+.icon__delete {
+	&:hover { 
+		color: $signature-blue--bright;
+		font-size: 1.2rem;
+	}
+
+	&.icon__delete--product,
+	&.icon__delete--item {
+		margin-left: 0.6rem;
+	}
+}
+
+.icon__edit {
+	margin-left: 0.6rem;
+
+	&:hover {
+		color: $signature-blue--bright;
+	}
+}
+
 .icon__gift {
-	color: white;
-	width: 120%;
+	width: 60%;
 	height: auto;
+	margin-right: 0.5rem;
 
 	// Desktop 
 	@media only screen and (min-width: 992px) {

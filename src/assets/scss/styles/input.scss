@@ -1,0 +1,12 @@
+@import 'styles/colors';
+
+/* Input */
+
+// Input fields
+
+input.form-control,
+input.form-control:focus {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    outline: 0;
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
+import { ArrowLeft } from 'react-bootstrap-icons'
 import { useAuth } from '../../contexts/AuthContext'
 
 const Logout = () => {
@@ -27,14 +28,20 @@ const Logout = () => {
 
 	return (		
 		<Row>
-			<Col>
+			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
 				{error && <Alert variant="danger">{error}</Alert>}
 
-				<h2>Är du säker på att du vill logga ut?</h2>
+				<h1>Är du säker på att du vill logga ut?</h1>
 
-				<Form onSubmit={handleSubmit} className="logout-form">
-					<Button disabled={loading} type="submit" className="btn btn__log-out">Ja, logga ut mig</Button>					
-					<Link to="/admin/redigera">Nej, ta mig tillbaka till redigeringsvyn</Link>
+				<Form onSubmit={handleSubmit} className="form">
+					<div>						
+						<Button disabled={loading} type="submit" className="button__primary">Ja, logga ut mig</Button>	
+					</div>					
+
+					<Link to="/admin/redigera" className="link text-link">
+						<ArrowLeft className="icon icon__arrow-left" />
+						Nej, ta mig tillbaka till redigeringsvyn
+					</Link>
 				</Form>
 			</Col>
 		</Row>		

@@ -4,4 +4,19 @@
 $signature-blue: #355F92;
 $signature-blue--bright: #4F8EDB;
 
+$green: #02301a;
+$green--bright: #03512C;
+
+$faded-white: #b3b0b0;
+
+
 // Button colors
+$button-primary: $signature-blue;
+$button-primary-hover: $signature-blue--bright;
+$button-primary-border: $signature-blue--bright;
+$button-primary-box-shadow: 0 0 0 .2rem rgb(79, 142, 219); 
+
+$button-secondary: $green;
+$button-secondary-hover: $green--bright;
+$button-secondary-border: $green--bright;
+$button-secondary-box-shadow: 0 0 0 .2rem rgb(66, 172, 122); 

@@ -37,7 +37,7 @@ const StorageContextProvider = (props) => {
 
 	const retrieveFromStorage = (key) => {
 		let productList = localStorage.getItem(key);
-		productList = productList ? JSON.parse(productList) : null;
+		productList = productList ? JSON.parse(productList) : [];
 
 		setChanges(false)
 

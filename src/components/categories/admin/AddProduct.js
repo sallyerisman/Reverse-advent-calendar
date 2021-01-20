@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Alert, Button, Form } from 'react-bootstrap'
-import { db } from '../../firebase'
+import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
+import { Plus } from 'react-bootstrap-icons'
+import { db } from '../../../firebase'
 
 const AddProduct = ({ category }) => {
 	const [error, setError] = useState(false)
@@ -50,23 +51,31 @@ const AddProduct = ({ category }) => {
 	}
 
 	return (
-		<>
-			{error && <Alert variant="danger">{error}</Alert>}
+		<Row className="page page__add-category">
+			<Col>
+				{error && <Alert variant="danger">{error}</Alert>}
 
-			<Form.Group id="product">
-				<Form.Label>Namn på produkten</Form.Label>
-				<Form.Control type="product" onChange={handleProductChange} value={product} autoFocus />
-				
-				{product && product.length < 2 && 
-					<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
-				}
+				<Form.Group id="product">
+					<Form.Label>Namn på produkten</Form.Label>
+					<Form.Control type="product" onChange={handleProductChange} value={product} autoFocus />
+					
+					{product && product.length < 2 && 
+						<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
+					}
 
-				{productExists && 
-					<Form.Text className="text__alert">Denna produkt finns redan i denna kategori.</Form.Text>
-				}					
-			</Form.Group>
-			<Button disabled={loading} className="btn btn__add-product" onClick={handleAddProduct}>Lägg till</Button>
-		</>
+					{productExists && 
+						<Form.Text className="text__alert">Denna produkt finns redan i denna kategori.</Form.Text>
+					}					
+				</Form.Group>
+
+				<div className="button-wrapper">
+					<Button className="button__primary" onClick={handleAddProduct}>
+						<Plus className="icon button-icon" />
+						Lägg till
+					</Button>								
+				</div>
+			</Col>
+		</Row>
 	)
 }
 

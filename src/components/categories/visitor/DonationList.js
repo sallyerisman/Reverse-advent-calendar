@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Col, Row } from 'react-bootstrap'
-import { useStorage } from '../contexts/StorageContext'
+import { Col, Row } from 'react-bootstrap'
+import { TrashFill } from 'react-bootstrap-icons'
+import { useStorage } from '../../../contexts/StorageContext'
 
 const DonationList = () => {
 	const [productList, setProductList] = useState(null)
@@ -18,7 +19,7 @@ const DonationList = () => {
 	return (
 		<Row>
 			{productList && productList.length > 0 && 
-				<Col>
+				<Col >
 					{donationComplete 
 						? <div>
 							<h2>Underbart, du har uppnått 24 saker att donera - TACK!</h2>
@@ -27,11 +28,11 @@ const DonationList = () => {
 						: <h2>Jag vill donera:</h2>									
 					}
 
-					<ol>
+					<ol className="donation-list">
 						{productList.map((item, index) => (				
-							<li key={index}>
+							<li key={index} className="list-item">
 								{item}
-								<Button onClick={() => {handleRemoveItem(index)}}>Ta bort</Button>
+								<TrashFill className="icon icon__delete icon__delete--item" onClick={() => {handleRemoveItem(index)}}/>
 							</li>
 						))}
 					</ol>
