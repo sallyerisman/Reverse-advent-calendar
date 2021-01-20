@@ -41,7 +41,7 @@ const StorageContextProvider = (props) => {
 
 		setChanges(false)
 
-		if (productList.length === 24) {
+		if (productList && productList.length === 24) {
 			setDonationComplete(true)
 		}
 

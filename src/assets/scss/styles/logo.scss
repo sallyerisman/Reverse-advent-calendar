@@ -1,0 +1,25 @@
+@import 'styles/colors';
+
+/* Page logo */
+
+.logo {
+	width: 70px;
+	filter: brightness(1.5);
+
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 100px;
+	}
+}
+
+.logo--footer {
+	width: 50px;
+	height: auto;
+
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 60px;
+		height: auto;
+	}
+}
+

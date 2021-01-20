@@ -1,0 +1,25 @@
+@import 'styles/colors';
+@import 'styles/typography';
+
+/* Links */
+
+.link {
+	color: $signature-blue--bright;
+	text-decoration: none;
+
+	&:hover { 
+		color: white;
+		text-decoration: none; 
+	}
+}
+
+.text-link {
+	font-weight: 400;
+
+	&:hover { 
+		text-decoration: none; 	
+	}
+}
+
+
+

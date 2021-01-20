@@ -1,0 +1,39 @@
+@import 'styles/colors';
+
+/* Icons */
+
+.icon-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	color: $signature-blue--bright;
+}
+
+.icon__admin {
+	width: 120%;
+	height: auto;
+
+	&:hover { 
+		font-size: 1.2rem;
+	}
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		width: 130%;
+		height: auto;	
+	}
+}
+
+.icon__gift {
+	color: white;
+	width: 120%;
+	height: auto;
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		width: 130%;
+		height: auto;	
+	}
+}

@@ -1,0 +1,61 @@
+@import 'styles/colors';
+
+/* Layout */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+	min-height: 100vh;
+	background-image: url('../../images/city-night-home.jpg');
+	background-size: cover;
+	background-position: center bottom;
+}
+
+.container {
+	max-width: 360px;
+
+	// Tablet portrait
+	@media only screen and (min-width: 600px) {
+		max-width: 520px;
+	}
+
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		max-width: 680px;
+	}
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		max-width: 900px;
+	}
+}
+
+.site-container {
+	padding-top: 2rem;
+	padding-bottom: 100px;
+	margin-bottom: 100px;
+	
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		padding-top: 3rem;
+	}
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		padding-top: 3.5rem;
+	}
+}
+
+
+
+
+

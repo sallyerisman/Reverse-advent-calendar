@@ -11,10 +11,11 @@ import Categories from './components/categories/Categories'
 import Category from './components/categories/Category'
 import Contact from './components/Contact'
 import DonationList from './components/DonationList'
-import ForgotPassword from './components/ForgotPassword'
+import Footer from './components/Footer'
+import ForgotPassword from './components/adminAccount/ForgotPassword'
 import Home from './components/Home'
-import Login from './components/Login'
-import Logout from './components/Logout'
+import Login from './components/adminAccount/Login'
+import Logout from './components/adminAccount/Logout'
 import Navigation from './components/Navigation'
 import NotFound from './components/NotFound'
 
@@ -24,7 +25,7 @@ const App = () => {
 			<AuthContextProvider>
 				<StorageContextProvider>
 					<Navigation />
-					<Container className="site-layout">
+					<Container className="site-container">
 						<div className="main">
 							<Routes>
 								<Route path="/">
@@ -82,6 +83,7 @@ const App = () => {
 					</Container>
 				</StorageContextProvider>
 			</AuthContextProvider>
+			<Footer />
 		</Router>
 	)
 }

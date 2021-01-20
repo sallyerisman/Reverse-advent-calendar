@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Navbar } from 'react-bootstrap'
+import { GiftFill } from 'react-bootstrap-icons';
+import { PersonFill } from 'react-bootstrap-icons';
+import logo from '../assets/images/logo.png'
 import { useAuth } from '../contexts/AuthContext'
 import { useStorage } from '../contexts/StorageContext'
-import adminIcon from '../assets/images/icon-admin.svg'
-import giftIcon from '../assets/images/icon-gift.svg'
-import logo from '../assets/images/logo-skane_stadsmission.png'
 
 const Navigation = () => {
     const { currentUser } = useAuth();
@@ -22,33 +22,28 @@ const Navigation = () => {
     }
 
 	return (
-        <Navbar>
-            <Container>
-                <Link to="/">
-                    <img
-                        alt="Skåne Stadmission"
-                        src={logo}
-                        className="page-logo"
-                    />
+        <Navbar className="navigation container">
+            <Link to="/">
+                <img
+                    alt="Skåne Stadmission"
+                    src={logo}
+                    className="logo"
+                />
+            </Link>
+
+            {!currentUser && productList &&                 
+                <span>
+                    {productList.length}
+                    <GiftFill className="icon icon__gift" onClick={handleToggleDisplay} />      
+                </span>                        
+            }  
+
+            {currentUser 
+                ? <Link to="/admin/utloggning">Logga ut</Link>
+                : <Link to="/admin" className="icon-wrapper">
+                        <PersonFill className="icon icon__admin" />                    
                 </Link>
-
-                {!currentUser && productList &&                 
-                    <span>
-                        {productList.length}
-                        <img 
-                            className="icon__gift"
-                            src={giftIcon} 
-                            onClick={handleToggleDisplay}/>
-                    </span>                        
-                }  
-
-                {currentUser 
-                    ? <Link to="/admin/utloggning">Logga ut</Link>
-                    : <Link to="/admin">
-                        <img src={adminIcon} />                        
-                    </Link>
-                }           
-            </Container>
+            }           
         </Navbar>
 	)
 }
