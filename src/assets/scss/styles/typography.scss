@@ -34,6 +34,20 @@ h2,
 	line-height: 1.8rem;
 }
 
+.heading__sidebar,
+.heading__sidebar--completed {
+	text-transform: none;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	white-space: nowrap;
+	padding-right: 2rem;
+	padding-bottom: 1rem;
+}
+
+.heading__sidebar--completed {
+	white-space: normal;
+}
+
 
 // Paragraphs
 
@@ -41,6 +55,9 @@ p {
 	font-weight: 300;
 	letter-spacing: 0.04em;
 }
+
+
+// Other
 
 .edit-text {
 	text-transform: none;
@@ -61,4 +78,10 @@ p {
 	p {
 		font-size: 0.8rem;;
 	}
+}
+
+.ingress {
+	margin-bottom: 2rem;
+	font-size: 0.9rem;
+	line-height: 1.5rem;
 }

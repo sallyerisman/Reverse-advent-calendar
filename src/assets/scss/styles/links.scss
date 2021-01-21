@@ -3,6 +3,12 @@
 
 /* Links */
 
+.link-wrapper {
+	&.align-right {
+		text-align: right;
+	}
+}
+
 .navlink-wrapper {
 	display: flex;
 }
@@ -17,12 +23,22 @@
 	}
 }
 
-.text-link {
-	font-weight: 400;
+.title-link {
 	color: white;
 
 	&:hover { 
 		color: $signature-blue--bright;
+		font-weight: 400;
+		text-decoration: none; 	
+	}
+}
+
+.text-link {
+	color: $signature-blue--bright;
+
+	&:hover { 
+		color: $signature-blue--bright;
+		font-weight: 400;
 		text-decoration: none; 	
 	}
 }

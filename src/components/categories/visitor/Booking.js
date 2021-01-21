@@ -1,9 +1,9 @@
 const Booking = () => {
     return (
-        <>
-        This is where the booking of a pick-up service would take place.
-        </>
-      );
+        <div>
+        	Detta är sidan där kunder kan boka upphämtning.
+        </div>
+    );
 }
  
 export default Booking;

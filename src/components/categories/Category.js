@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
-import { ArrowLeft } from 'react-bootstrap-icons'
 import DotLoader from 'react-spinners/DotLoader'
 import { useAuth } from '../../contexts/AuthContext'
 import useCategory from '../../hooks/useCategory'
@@ -12,8 +10,8 @@ const Category = () => {
 	const { category, loading } = useCategory()
 
 	return (
-		<Row>
-			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+		<Row className="page__category">
+			<Col>
 				{loading 
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
 					: currentUser 

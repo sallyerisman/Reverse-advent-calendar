@@ -28,7 +28,7 @@ const CategoryContent = ({ categoryId, products }) => {
 	return (
 		<>
 			{products.map(product => (
-				<Card key={product}>
+				<Card key={product} className="card--product">
 					<Card.Body>
 						<Card.Title>{product}</Card.Title>
 						{currentUser  
@@ -36,8 +36,9 @@ const CategoryContent = ({ categoryId, products }) => {
 								className="icon icon__delete icon__delete--product" 
 								onClick={() => {handleDeleteProduct(product)}}
 							/>
-							: productList && productList.length < 24 &&
-								<Button className="button__secondary" onClick={() => {handleDonateProduct(product)}}>Donera</Button>
+							: productList && productList.length < 24 
+								? <Button className="button__secondary" onClick={() => {handleDonateProduct(product)}}>Donera</Button>
+								: <Button className="button__secondary button--hide" onClick={() => {handleDonateProduct(product)}}>Donera</Button>
 						}
 					</Card.Body>
 				</Card>

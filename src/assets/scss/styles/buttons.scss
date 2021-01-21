@@ -3,7 +3,9 @@
 /* Buttons */
 
 .button-wrapper {
-	text-align: right;
+	&.align-right {
+		text-align: right;
+	}
 }
 
 .btn {
@@ -40,6 +42,10 @@
 		background-color: $button-secondary-hover;
 		border: $button-secondary-border;
 		box-shadow: $button-secondary-box-shadow;
+	}
+
+	&.button--hide {
+		visibility: hidden;
 	}
 }
 

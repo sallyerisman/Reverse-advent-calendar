@@ -45,12 +45,14 @@ const Login = () => {
 						<Form.Control type="password" ref={passwordRef} required />
 					</Form.Group>
 
-					<div className="button-wrapper">						
+					<div className="button-wrapper align-right">						
 						<Button disabled={loading} type="submit" className="button__primary">Logga in</Button>
 					</div>
-				</Form>
 
-				<Link to="/admin/aterstall-losenord">Glömt ditt lösenord?</Link>
+					<div className="link-wrapper align-right">						
+						<Link to="/admin/aterstall-losenord" className="link text-link">Glömt ditt lösenord?</Link>
+					</div>
+				</Form>
 			</Col>
 		</Row>
 	)

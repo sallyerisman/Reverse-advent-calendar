@@ -31,7 +31,7 @@ const EditCategory = () => {
 						? <EditTitle category={category}/> 
 						: <>
 							<h1>
-								<Link to={`/admin/redigera/${category.urlParam}`} className="link text-link">
+								<Link to={`/admin/redigera/${category.urlParam}`} className="link title-link">
 									{category.title} 
 								</Link>
 								<span onClick={handleEditTitle}	className="edit-text"
@@ -48,12 +48,10 @@ const EditCategory = () => {
 
 							{addProduct 
 								? <AddProduct category={category}/>
-								: <div className="button-wrapper">
-									<Button onClick={handleAddProduct} type="button" className="button__primary">
-										<Plus className="icon button-icon" />
-										Lägg till produkt
-									</Button>								
-								</div>
+								: <Button onClick={handleAddProduct} type="button" className="button__primary">
+									<Plus className="icon button-icon" />
+									Lägg till produkt
+								</Button>								
 							}
 						</>
 				}

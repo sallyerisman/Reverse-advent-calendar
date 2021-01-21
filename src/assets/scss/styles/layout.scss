@@ -18,6 +18,12 @@ body {
 	background-image: url('../../images/city-night.jpg');
 	background-size: cover;
 	background-position: left bottom;
+
+	&.thank-you {
+		background-image: url('../../images/candle.jpg');
+		background-size: cover;
+		background-position: center bottom;
+	}
 }
 
 .container {
@@ -62,25 +68,46 @@ body {
 .main {
 	// Tablet
 	@media only screen and (min-width: 768px) {
-		width: 100%;
+		width: 60%;
 	}
 }
 
 .sidebar {
-    min-height: 100vh;
-    display: block;
+	display: none;
+	
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		display: block;
+		max-width: 30%;
+	}
+}
+
+.sidebar--top {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 3rem;
 
     &.hide {
         display: none;
 	}
-	
+
 	// Tablet
 	@media only screen and (min-width: 768px) {
-		width: 40%;
+		display: none;
 	}
 }
 
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
 // Page-specific layout styles
+
+.page__category {
+	display: flex;
+	flex-direction: column;
+}
 
 .page__add-category,
 .page__add-product {
@@ -97,23 +124,8 @@ body {
 	}
 }
 
-.form {
-	display: flex;
-	flex-direction: column;
-}
 
-.donation-list {
-	display: flex;
-	flex-direction: column;
 
-	.list-item {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 1px dotted $faded-white;
-		margin-bottom: 0.5rem;
-	}
-}
 
 
 

@@ -26,7 +26,10 @@ const App = () => {
 				<StorageContextProvider>
 					<Navigation />
 					<Container className="site-container">
-						<div className="main">
+						<div className="sidebar--top">
+							<DonationList />
+						</div>
+						<main className="main">
 							<Routes>
 								<Route path="/">
 									<Home />
@@ -76,10 +79,10 @@ const App = () => {
 
 								<Route path="*" element={<NotFound />} />
 							</Routes>
-						</div>
-						<div className="sidebar">
+						</main>
+						<aside className="sidebar">
 							<DonationList />
-						</div>
+						</aside>
 					</Container>
 				</StorageContextProvider>
 			</AuthContextProvider>

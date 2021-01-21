@@ -4,6 +4,7 @@
 
 .card {
 	background-color: rgba(0, 0, 0, 0.5);
+	margin-bottom: 0.7rem;
 }
 
 .card-body {
@@ -11,3 +12,54 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
+.card__contact {
+	padding-top: 1rem;
+
+	&:nth-child(even) {
+		padding-top: 0;
+		padding-bottom: 1rem;
+	}
+
+	.card-body {
+		display: flex;
+		flex-direction: column;
+	
+		.card-title {
+			font-size: 1.2rem;
+		}
+	
+		.card-text {
+			font-size: 0.9rem;;
+		}
+	
+		// Tablet
+		@media only screen and (min-width: 768px) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+	
+			.card-title {
+				width: 40%;
+				margin-right: 2rem;
+			}
+		}
+	}
+}
+
+.card__contact:nth-child(even) {
+	padding-top: 0;
+	padding-bottom: 1rem;
+}
+
+.card--product {
+	.card-body {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+
+
+
+

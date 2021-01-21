@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 import { Plus } from 'react-bootstrap-icons'
+import DotLoader from 'react-spinners/DotLoader'
 import { db } from '../../../firebase'
 
 const AddProduct = ({ category }) => {
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
 	const [product, setProduct] = useState("")
+	const valueInput = useRef(null);
+
 	const [productExists, setProductExists] = useState(false)
 	const { id, products, title, urlParam } = category
 
@@ -15,7 +18,9 @@ const AddProduct = ({ category }) => {
 		setProduct(e.target.value)
 	}
 
-	const handleAddProduct = async (e) => {
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		
 		if (product.length < 2) {
 			return;
 		}
@@ -43,6 +48,7 @@ const AddProduct = ({ category }) => {
 
 			setLoading(false)
 			setProduct("")
+			valueInput.current.focus()
 
 		} catch (e) {
 			setError("Något gick fel och produkten kunde inte läggas till. Var god försök igen.")
@@ -55,25 +61,30 @@ const AddProduct = ({ category }) => {
 			<Col>
 				{error && <Alert variant="danger">{error}</Alert>}
 
-				<Form.Group id="product">
-					<Form.Label>Namn på produkten</Form.Label>
-					<Form.Control type="product" onChange={handleProductChange} value={product} autoFocus />
-					
-					{product && product.length < 2 && 
-						<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
-					}
+				{loading
+					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
+					: <Form onSubmit={handleSubmit}>
+						<Form.Group id="product">
+							<Form.Label>Namn på produkten</Form.Label>
+							<Form.Control type="product" onChange={handleProductChange} ref={valueInput} value={product} autoFocus />
+							
+							{product && product.length < 2 && 
+								<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>
+							}
 
-					{productExists && 
-						<Form.Text className="text__alert">Denna produkt finns redan i denna kategori.</Form.Text>
-					}					
-				</Form.Group>
+							{productExists && 
+								<Form.Text className="text__alert">Denna produkt finns redan i denna kategori.</Form.Text>
+							}					
+						</Form.Group>
 
-				<div className="button-wrapper">
-					<Button className="button__primary" onClick={handleAddProduct}>
-						<Plus className="icon button-icon" />
-						Lägg till
-					</Button>								
-				</div>
+						<div className="button-wrapper">
+							<Button className="button__primary" type="submit">
+								<Plus className="icon button-icon" />
+								Lägg till
+							</Button>								
+						</div>
+					</Form>
+				}
 			</Col>
 		</Row>
 	)

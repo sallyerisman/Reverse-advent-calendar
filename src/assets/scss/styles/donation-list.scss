@@ -1,0 +1,23 @@
+@import 'styles/colors';
+
+/* Donation list */
+
+.donation-card {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 20px 5px 0 5px;
+
+	.donation-list {
+		display: flex;
+		flex-direction: column;
+	
+		.list-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px dotted $faded-white;
+			margin-bottom: 0.5rem;
+			font-size: 0.8rem;
+		}
+	}
+
+}

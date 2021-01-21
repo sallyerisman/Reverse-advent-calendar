@@ -15,15 +15,15 @@ const Footer = () => {
                     <Col md={{ span: 4 }}>
                         <h2>Kontakta oss</h2>
                         <p>Skåne Stadsmission
-                            <br></br>
+                            <br />
                             Korsgatan 14 | 211 32 Malmö
                         </p>
                         <p>Vxl 040-664 22 40
-                            <br></br>
+                            <br />
                             <a className="link text-link" href={"mailto:info@skanestadsmission.se"}>info@skanestadsmission.se</a>
                         </p>
                         <p>Org.nr 846004-8716
-                            <br></br>
+                            <br />
                             <a className="link text-link" href={"mailto:faktura@skanestadsmission.se"}>faktura@skanestadsmission.se</a>
                         </p>
                     </Col>
