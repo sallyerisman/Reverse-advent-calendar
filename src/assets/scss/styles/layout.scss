@@ -15,34 +15,9 @@ html {
 
 body {
 	min-height: 100vh;
-	background-image: url('../../images/city-night.jpg');
+	background-image: url('../../images/backgrounds/city-night.jpg');
 	background-size: cover;
-	background-position: left bottom;
-
-	&.thank-you {
-		background-image: url('../../images/candle.jpg');
-		background-size: cover;
-		background-position: center bottom;
-	}
-}
-
-.container {
-	max-width: 360px;
-
-	// Tablet portrait
-	@media only screen and (min-width: 600px) {
-		max-width: 520px;
-	}
-
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		max-width: 680px;
-	}
-
-	// Desktop 
-	@media only screen and (min-width: 992px) {
-		max-width: 900px;
-	}
+	background-position: bottom;
 }
 
 .site-container {
@@ -56,7 +31,7 @@ body {
 	@media only screen and (min-width: 768px) {
 		padding-top: 3rem;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: center;
 	}
 
 	// Desktop 
@@ -74,26 +49,22 @@ body {
 
 .sidebar {
 	display: none;
+
+	&.show {
+		display: block;
+		margin-bottom: 3rem;
+	}
 	
 	// Tablet
 	@media only screen and (min-width: 768px) {
 		display: block;
-		max-width: 30%;
-	}
-}
-
-.sidebar--top {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 3rem;
-
-    &.hide {
-        display: none;
+		margin-bottom: 3rem;
+		margin-right: 4rem;
 	}
 
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		display: none;
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		margin-right: 6rem;
 	}
 }
 

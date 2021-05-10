@@ -3,23 +3,30 @@ import { Link } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 import { GiftFill } from 'react-bootstrap-icons'
 import { PersonFill, PersonXFill } from 'react-bootstrap-icons'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logos/logo.png'
 import { useAuth } from '../contexts/AuthContext'
 import { useStorage } from '../contexts/StorageContext'
 
 const Navigation = () => {
+    const [adminMode, setAdminMode] = useState(false)
     const [productList, setProductList] = useState(null)
 
     const { currentUser } = useAuth()
     const { changes, retrieveFromStorage } = useStorage()
+    
+    useEffect(() => {
+        if (window.location.pathname === "/admin") {
+            setAdminMode(true)
+        }
+    }, []);
 
     useEffect(() => {
 		setProductList(retrieveFromStorage('products'));
     }, [changes]);
 
     const handleToggleDisplay = () => {
-        const sidebar = document.getElementsByClassName('sidebar--top');
-        sidebar[0].classList.toggle('hide');
+        const sidebar = document.getElementsByClassName('sidebar');
+        sidebar[0].classList.toggle('show');
     }
 
 	return (
@@ -40,13 +47,17 @@ const Navigation = () => {
                     </span>                        
                 }  
 
-                {currentUser 
-                    ? <Link to="/admin/utloggning" className="icon-wrapper">
-                        <PersonXFill className="icon icon--nav icon__admin" />  
-                    </Link>
-                    : <Link to="/admin" className="icon-wrapper">
-                        <PersonFill className="icon icon--nav icon__admin" />                    
-                    </Link>
+                {adminMode 
+                    ? (
+                        currentUser 
+                            ? <Link to="/admin/utloggning" className="icon-wrapper">
+                                <PersonXFill className="icon icon--nav icon__admin" />  
+                            </Link>
+                            : <Link to="/admin" className="icon-wrapper">
+                                <PersonFill className="icon icon--nav icon__admin" />                    
+                            </Link>
+                    )
+                    : ""
                 }
             </div>
         </Navbar>
