@@ -15,9 +15,9 @@ html {
 
 body {
 	min-height: 100vh;
-	background-image: url('../../images/backgrounds/city-night.jpg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('../../images/backgrounds/city-night.jpg');
 	background-size: cover;
-	background-position: bottom;
+	background-position: top;
 }
 
 .site-container {
@@ -31,7 +31,7 @@ body {
 	@media only screen and (min-width: 768px) {
 		padding-top: 3rem;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: space-between;
 	}
 
 	// Desktop 

@@ -23,10 +23,15 @@ const StorageContextProvider = (props) => {
 		setChanges(true)
 	}
 
-	const removeFromStorage = (key, index) => {		
+	const removeFromStorage = (key, item) => {		
 		let existingProducts = localStorage.getItem(key);
 		existingProducts = existingProducts && JSON.parse(existingProducts);		
-		existingProducts.splice(index, 1);
+
+		const index = existingProducts.indexOf(item[0]);
+		
+		if (index > -1) {
+			existingProducts.splice(index, 1);
+		}
 
 		const stringifiedProductsList = JSON.stringify(existingProducts);
 		localStorage.setItem(key, stringifiedProductsList);

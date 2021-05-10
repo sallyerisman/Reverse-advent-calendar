@@ -23,6 +23,18 @@
 	}
 }
 
+.email-link {
+	color: white;
+
+	&:hover { 
+		color: $signature-blue--bright;
+		font-weight: 400;
+		text-decoration: none; 	
+	}
+}
+
+.email-link,
+.tel-link,
 .title-link {
 	color: white;
 

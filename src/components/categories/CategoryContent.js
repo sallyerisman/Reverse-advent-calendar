@@ -27,6 +27,8 @@ const CategoryContent = ({ categoryId, products }) => {
 
 	return (
 		<>
+			<p className="help-text">Du kan lägga till hur många du vill av samma</p>
+			
 			{products.map(product => (
 				<Card key={product} className="card--product">
 					<Card.Body>

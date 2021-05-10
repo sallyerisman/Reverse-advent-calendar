@@ -37,13 +37,16 @@
 }
 
 .icon__arrow-left {
-	margin-right: 0.6rem;
+	width: 5%;
+	height: auto;
+	margin-top: 3rem;
+
 }
 
 .icon__delete {
 	&:hover { 
 		color: $signature-blue--bright;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 	}
 
 	&.icon__delete--product,

@@ -4,21 +4,20 @@ const Footer = () => {
 	return (
         <footer className="footer">
             <Container>
-                <Row className="footer-content-wrapper footer-text">
-                    <Col md={{ span: 4 }}>
+                <Row className="footer-content-wrapper">
+                    <Col md={{ span: 4 }} className="footer-text">
                         <h2>Dina pengar når fram</h2>
                         <p>Skåne Stadsmission har 90-konto och är medlemmar i Giva Sverige.</p>
-                        <p>Gåvobankbankgiro: 900-3252
-                            Swish: 900 3252
-                        </p>
+                        <p>Gåvobankbankgiro: 900-3252</p>
+                        <p>Swish: 900 3252</p>
                     </Col>
-                    <Col md={{ span: 4 }}>
+                    <Col md={{ span: 4 }} className="footer-text">
                         <h2>Kontakta oss</h2>
                         <p>Skåne Stadsmission
                             <br />
                             Korsgatan 14 | 211 32 Malmö
                         </p>
-                        <p>Vxl 040-664 22 40
+                        <p>Vxl<a className="tel-link" href="tel:+4640-664-22-40"> 040-664 22 40</a>
                             <br />
                             <a className="link text-link" href={"mailto:info@skanestadsmission.se"}>info@skanestadsmission.se</a>
                         </p>
@@ -28,7 +27,7 @@ const Footer = () => {
                         </p>
                     </Col>
 
-                    <Col md={{ span: 4 }}>
+                    <Col md={{ span: 4 }} className="footer-text">
                         <h2>Följ oss</h2>
                         <p>
                             <a className="link text-link" href="https://www.facebook.com/skanestadsmission/">Facebook</a> |   
@@ -39,7 +38,7 @@ const Footer = () => {
                         </p>
                         <p>Prenumerera på vårt nyhetsbrev!</p>
                         <h2>Personuppgifter</h2>
-                        <p>Läs vår integritetspolicy för att få veta mer om hur vi behandlar dina personuppgifter.</p>
+                        <p>Läs vår <a className="link text-link" href={"https://www.skanestadsmission.se/integritetspolicy-2/"}>integritetspolicy</a> för att få veta mer om hur vi behandlar dina personuppgifter.</p>
                     </Col>
                 </Row>
             </Container>

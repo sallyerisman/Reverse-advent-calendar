@@ -1,20 +1,37 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Col, Row } from 'react-bootstrap'
 import { TrashFill } from 'react-bootstrap-icons'
 import { useStorage } from '../../../contexts/StorageContext'
 
 const DonationList = () => {
+	const [countedList, setCountedList] = useState(null)
 	const [productList, setProductList] = useState(null)
 	const { changes, donationComplete, removeFromStorage, retrieveFromStorage } = useStorage()
 
+	const handleCount = (productList) => {
+		const count = {}
+		
+		productList && productList.forEach(item => {
+			if (count[item]) {
+			   count[item] +=1
+			   return
+			}
+
+			count[item] = 1
+		})
+		
+		setCountedList(Object.entries(count))
+	}
+
+	
+	const handleRemoveItem = (item) => {
+		setProductList(removeFromStorage('products', item));
+	}
+
 	useEffect(() => {
 		setProductList(retrieveFromStorage('products'));
+		handleCount(productList);
 	}, [changes]);
-
-	const handleRemoveItem = (index) => {
-		setProductList(removeFromStorage('products', index));
-	}
 
 	return (
 		<>
@@ -27,12 +44,12 @@ const DonationList = () => {
 						</div>
 						: <h2 className="heading__sidebar">Jag vill donera:</h2>									
 					}
-
+					
 					<ol className="donation-list">
-						{productList.map((item, index) => (				
+						{countedList && countedList.map((item, index) => (			
 							<li key={index} className="list-item">
-								{item}
-								<TrashFill className="icon icon__delete icon__delete--item" onClick={() => {handleRemoveItem(index)}}/>
+								{item[1] + " x " + item[0]}
+								<TrashFill className="icon icon__delete icon__delete--item" onClick={() => {handleRemoveItem(item)}}/>
 							</li>
 						))}
 					</ol>
