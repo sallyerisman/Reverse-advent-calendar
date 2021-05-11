@@ -27,14 +27,14 @@ const Logout = () => {
 	}
 
 	return (		
-		<Row className="page__logout">
-			<Col md={{ span: 10 }} lg={{ span: 6 }}>
+		<Row className="page-content">
+			<Col md={{ span: 9}} lg={{ span: 8}}>
 				{error && <Alert variant="danger">{error}</Alert>}
 
 				<h1 className="h2">Är du säker på att du vill logga ut?</h1>
 
 				<Form onSubmit={handleSubmit} className="form">
-					<div className="button-wrapper align-center">						
+					<div className="align-center button-wrapper">						
 						<Button disabled={loading} type="submit" className="button__primary">Ja, logga ut mig</Button>	
 					</div>	
 

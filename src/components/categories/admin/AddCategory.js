@@ -79,8 +79,7 @@ const AddCategory = () => {
 
 				<Form onSubmit={handleSubmit}>
 					<Form.Group id="title">
-						<Form.Label>Namn på kategorin</Form.Label>
-						<Form.Control type="title" onChange={handleTitleChange} value={title} autoFocus required />
+						<Form.Control placeholder="Namn på kategorin" type="title" onChange={handleTitleChange} value={title} autoFocus required />
 
 						{title && title.length < 3 && 
 							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>

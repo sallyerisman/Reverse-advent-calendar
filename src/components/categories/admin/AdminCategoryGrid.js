@@ -40,10 +40,12 @@ const AdminCategoryGrid = ({ categories }) => {
 							
 						{addCategory 
 							? <AddCategory />
-							: <Button className="btn button__primary" onClick={handleAddCategory}>
+							: <div className="button-wrapper">
+								<Button className="btn button__primary" onClick={handleAddCategory}>
 								<Plus className="icon button-icon" />
 								Lägg till kategori
-							</Button>								
+							</Button>
+							</div>								
 						}
 					</>
 				}				

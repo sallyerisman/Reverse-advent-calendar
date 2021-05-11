@@ -5,8 +5,8 @@ import { ArrowLeft } from 'react-bootstrap-icons'
 const Booking = () => {
 
 	return (
-		<Row className="page__booking">
-			<Col>
+		<Row className="page-content">
+			<Col md={{ span: 9}} lg={{ span: 8}}>
                 <h1>Boka upphämtning</h1>
 
                 <p>Här ska det gå att boka upphämtning</p>

@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navigate, BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import './assets/scss/app.scss'
 
-import AuthContextProvider from './contexts/AuthContext'
 import StorageContextProvider from './contexts/StorageContext'
+import { useAuth } from './contexts/AuthContext'
 
 import AuthRoute from './components/AuthRoute'
 import Booking from './components/categories/visitor/Booking'
@@ -20,31 +20,55 @@ import Navigation from './components/Navigation'
 import NotFound from './components/NotFound'
 
 const App = () => {
+
+	const { currentUser } = useAuth()
+
 	return (
 		<Router>
-			<AuthContextProvider>
-				<StorageContextProvider>
-					<Navigation />
-					<Container className="site-container">
-						<aside className="sidebar">
-							<DonationList />
-						</aside>
+			<StorageContextProvider>
+				<Navigation />
+				<Container className="site-container">
+					<aside className="sidebar">
+						<DonationList />
+					</aside>
 
-						<main className="main">
-							<Routes>
+					<main className="main">
+						<Routes>
+							<Route path="/">
+								<Home />
+							</Route>
+
+							<Route path="/upphamtning">
+								<Booking />
+							</Route>
+							
+							<Route path="/inlamning">
+								<Contact />
+							</Route>
+
+							<Route path="/donera">
 								<Route path="/">
-									<Home />
+									<Categories />
 								</Route>
 
-								<Route path="/upphamtning">
-									<Booking />
+								<Route path="/:categoryUrl">
+									<Category />
 								</Route>
-								
-								<Route path="/inlamning">
-									<Contact />
+							</Route>
+
+							<Route path="/admin">
+								<Route path="/">
+									{!currentUser 
+										? <Login />
+										: <Navigate to="/admin/redigera" /> 		
+									}
 								</Route>
 
-								<Route path="/donera">
+								<Route path="/aterstall-losenord">
+									<ForgotPassword />
+								</Route>
+
+								<AuthRoute path="/redigera">
 									<Route path="/">
 										<Categories />
 									</Route>
@@ -52,38 +76,18 @@ const App = () => {
 									<Route path="/:categoryUrl">
 										<Category />
 									</Route>
-								</Route>
+								</AuthRoute>
 
-								<Route path="/admin">
-									<Route path="/">
-										<Login />
-									</Route>
+								<AuthRoute path="/utloggning">
+									<Logout />								
+								</AuthRoute>
+							</Route>
 
-									<Route path="/aterstall-losenord">
-										<ForgotPassword />
-									</Route>
-
-									<AuthRoute path="/redigera">
-										<Route path="/">
-											<Categories />
-										</Route>
-
-										<Route path="/:categoryUrl">
-											<Category />
-										</Route>
-									</AuthRoute>
-
-									<AuthRoute path="/utloggning">
-										<Logout />								
-									</AuthRoute>
-								</Route>
-
-								<Route path="*" element={<NotFound />} />
-							</Routes>
-						</main>
-					</Container>
-				</StorageContextProvider>
-			</AuthContextProvider>
+							<Route path="*" element={<NotFound />} />
+						</Routes>
+					</main>
+				</Container>
+			</StorageContextProvider>
 			<Footer />
 		</Router>
 	)

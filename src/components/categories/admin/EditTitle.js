@@ -87,7 +87,7 @@ const EditTitle = ({ category }) => {
 					}
 				</Form.Group>
 
-				<div className="button-wrapper">
+				<div className="button-wrapper button-wrapper__edit">
 					<Button className="btn button__primary" disabled={loading} type="submit">
 						Uppdatera
 					</Button>

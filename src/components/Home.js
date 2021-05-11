@@ -3,8 +3,8 @@ import { Col, Row } from 'react-bootstrap'
 
 const Home = () => {
 	return (
-		<Row>
-			<Col className="home-page-text">	
+		<Row className="page-content">
+			<Col className="home-page-text" md={{ span: 9}} lg={{ span: 8}}>	
 				<h1>Bakvänd adventskalender</h1>
 
 				<p>Det är svårt att tänka sig att det finns familjer som inte har tillräckligt med mat, men vi på Skåne Stadsmission möter dem varje dag. Din gåva är viktigare än någonsin!</p>

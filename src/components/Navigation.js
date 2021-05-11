@@ -16,6 +16,8 @@ const Navigation = () => {
     useEffect(() => {
         if (window.location.toString().includes("admin")) {
             setAdminMode(true)
+        } else {
+            setAdminMode(false)
         }
     }, []);
 

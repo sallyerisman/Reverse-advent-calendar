@@ -22,39 +22,40 @@ const EditCategory = () => {
 	};
 	
 	return (
-		<Row>
-			<Col>
-				{loading
-					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
-					: editTitle 
-						? <EditTitle category={category}/> 
-						: <>
-							<h1>
-								{category.title} 
+		<>
+			{loading
+				? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
+				: editTitle 
+					? <EditTitle category={category}/> 
+					: <>
+						<h1>
+							{category.title} 
 
-								<span onClick={handleEditTitle}	className="edit-text"
-									>Redigera
-									<PencilFill className="icon icon__edit" />
-								</span>
-							</h1>
-				
+							<div onClick={handleEditTitle}	className="edit-text"
+								>Ändra titel
+								<PencilFill className="icon icon__edit" />
+							</div>
+						</h1>
+			
 
-							{category.products.length < 1 
-								? <div>Just nu finns det inga produkter i denna kategori</div>
-								: <CategoryContent categoryId={category.id} products={category.products} />					
-							}
+						{category.products.length < 1 
+							? <div>Just nu finns det inga produkter i denna kategori</div>
+							: <CategoryContent categoryId={category.id} products={category.products} />					
+						}
 
-							{addProduct 
-								? <AddProduct category={category}/>
-								: <Button onClick={handleAddProduct} type="button" className="button__primary">
+						{addProduct 
+							? <AddProduct category={category}/>
+							: <div className="button-wrapper">
+								<Button onClick={handleAddProduct} type="button" className="button__primary">
 									<Plus className="icon button-icon" />
 									Lägg till produkt
-								</Button>								
-							}
-						</>
-				}
-			</Col>
-		</Row>
+								</Button>
+							</div>								
+						}
+					</>
+			}
+
+		</>
 	)
 }
 

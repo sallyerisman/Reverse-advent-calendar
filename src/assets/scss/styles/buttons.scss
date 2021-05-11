@@ -3,10 +3,19 @@
 /* Buttons */
 
 .btn {
-	margin: 3rem 0;
 	padding: 0.5rem 0.8rem;
 	white-space: nowrap;
 	display: inline-block;
+}
+
+.button-wrapper {
+	margin-top: 3rem;
+
+	&__edit {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
 }
 
 .button__primary {

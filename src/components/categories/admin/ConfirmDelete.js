@@ -18,7 +18,10 @@ const ConfirmDelete = ({ category }) => {
 			<h2>Är du säker på att du vill ta bort kategorin "{category.title}"" och dess innehåll?</h2>
 
 			<Form onSubmit={handleSubmit}>
-				<Button type="submit" className="btn btn__delete-category">Ja, ta bort</Button>					
+				<div className="button-wrapper">
+					<Button type="submit" className="btn btn__delete-category">Ja, ta bort</Button>	
+				</div>
+
 				<Link to="/admin/redigera" onClick={() => window.location.reload()}>Nej, ta mig tillbaka till redigeringsvyn</Link>
 			</Form>
 		</>		

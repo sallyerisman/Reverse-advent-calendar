@@ -10,8 +10,8 @@ const Categories = () => {
 	const { currentUser } = useAuth()
 
 	return (
-		<Row>
-			<Col>
+		<Row className="page-content">
+			<Col md={{ span: 9}} lg={{ span: 8}}>
 				<h1>Vad vi behöver nu</h1>
 
 				{loading

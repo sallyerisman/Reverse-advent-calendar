@@ -72,7 +72,14 @@ body {
 	flex-direction: column;
 }
 
-// Page-specific layout styles
+.page-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+// Component-specific layout styles
 
 .page__add-category,
 .page__add-product {
@@ -82,23 +89,6 @@ body {
 	@media only screen and (min-width: 992px) {
 		padding-top: 3.5rem;
 	}
-}
-
-.page__category {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		width: 60%;
-	}
-}
-
-.page__logout {
-	display: flex;
-	justify-content: center;
 }
 
 // Other

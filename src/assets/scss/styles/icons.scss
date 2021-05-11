@@ -21,18 +21,16 @@
 }
 
 .icon__admin {
-	width: 120%;
-	height: auto;
+	font-size: 1.2rem;
 	margin-left: 2rem;
-
-	&:hover { 
-		font-size: 1.2rem;
-	}
 
 	// Desktop 
 	@media only screen and (min-width: 992px) {
-		width: 130%;
-		height: auto;	
+		font-size: 1.5rem;	
+
+		&:hover { 
+			font-size: 1.7rem;
+		}
 	}
 }
 
@@ -41,12 +39,17 @@
 	height: auto;
 	display: block;
 	margin: auto;
-	margin-top: 3rem;
+	margin-top: 8rem;
 
-		// Desktop 
-		@media only screen and (min-width: 992px) {
-			width: 6%;
-		}
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		margin-top: 10rem;
+	}
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		width: 6%;
+	}
 
 }
 

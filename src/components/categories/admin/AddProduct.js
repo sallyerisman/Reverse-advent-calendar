@@ -65,8 +65,7 @@ const AddProduct = ({ category }) => {
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
 					: <Form onSubmit={handleSubmit}>
 						<Form.Group id="product">
-							<Form.Label>Namn på produkten</Form.Label>
-							<Form.Control type="product" onChange={handleProductChange} ref={valueInput} value={product} autoFocus />
+							<Form.Control placeholder="Namn på produkten" type="product" onChange={handleProductChange} ref={valueInput} value={product} autoFocus />
 							
 							{product && product.length < 2 && 
 								<Form.Text className="text__alert">Namnet på produkten måste vara minst 2 tecken långt.</Form.Text>

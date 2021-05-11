@@ -28,8 +28,8 @@ const Login = () => {
 	}
 
 	return (
-		<Row>
-			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+		<Row className="page-content">
+			<Col md={{ span: 8}} lg={{ span: 6}}>
 				<h1>Logga in</h1>
 
 				{error && <Alert variant="danger">{error}</Alert>}
@@ -45,12 +45,15 @@ const Login = () => {
 						<Form.Control type="password" ref={passwordRef} required />
 					</Form.Group>
 
-					<div className="button-wrapper align-right">						
+					<div className="button-wrapper">						
 						<Button disabled={loading} type="submit" className="button__primary">Logga in</Button>
 					</div>
 
-					<div className="link-wrapper align-right">						
+					<div className="link-wrapper">						
 						<Link to="/admin/aterstall-losenord" className="link text-link">Glömt ditt lösenord?</Link>
+					</div>
+					<div className="link-wrapper">						
+						<Link to="/donera" className="link text-link">Ta mig till besöksvyn</Link>
 					</div>
 				</Form>
 			</Col>

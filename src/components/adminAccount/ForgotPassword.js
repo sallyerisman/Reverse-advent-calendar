@@ -27,8 +27,8 @@ const ForgotPassword = () => {
 	}
 
 	return (
-		<Row>
-			<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+		<Row className="page-content">
+			<Col md={{ span: 9}} lg={{ span: 8}}>
 				<h1>Har du glömt ditt lösenord?</h1>
 
 				{error && <Alert variant="danger">{error}</Alert>}
