@@ -15,7 +15,7 @@ const ConfirmDelete = ({ category }) => {
 
 	return (		
 		<>
-			<h2>Är du säker på att du vill ta bort kategorin "{category.title}"" och dess innehåll?</h2>
+			<p>Är du säker på att du vill ta bort kategorin "{category.title}"" och dess innehåll?</p>
 
 			<Form onSubmit={handleSubmit}>
 				<div className="button-wrapper">

@@ -4,15 +4,18 @@ import { Card } from 'react-bootstrap'
 const CategoryGrid = ({ categories }) => {
 	return (
 		<>
-			{categories.map(category => (
-				<Card key={category.id}>
-					<Card.Body>
-						<Card.Title>
-							<Link to={`/donera/${category.urlParam}`} className="link title-link">{category.title}</Link>
-						</Card.Title>
-					</Card.Body>
-				</Card>
-			))}
+			<h1>Vad vi behöver nu</h1>
+			<div className="card-wrapper">
+				{categories.map(category => (
+					<Link to={`/donera/${category.urlParam}`} className="link title-link">					
+						<Card key={category.id} className="card__category">
+							<Card.Body>
+								<Card.Title>{category.title}</Card.Title>
+							</Card.Body>
+						</Card>
+					</Link>
+				))}
+			</div>
 		</>
 	)
 }

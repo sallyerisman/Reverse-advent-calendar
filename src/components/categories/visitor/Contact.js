@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Card, Col, Row } from 'react-bootstrap'
-import { ArrowLeft } from 'react-bootstrap-icons'
+import { Arrow90degLeft } from 'react-bootstrap-icons'
 
 const Contact = () => {
     return ( 
         <Row className="page-content">
-            <Col md={{ span: 10}} lg={{ span: 8}}>
+            <Col className="main-col" md={{ span: 10}} lg={{ span: 8}}>
                 <h1>Inlämning</h1>
 
                 <Card className="card__contact">
@@ -37,7 +37,7 @@ const Contact = () => {
                 </Card>
 
                 <Link to="/donera">
-                    <ArrowLeft className="icon icon__arrow-left"/>                  
+                    <Arrow90degLeft className="icon icon__arrow-left"/>                  
                 </Link>
             </Col>	
         </Row>

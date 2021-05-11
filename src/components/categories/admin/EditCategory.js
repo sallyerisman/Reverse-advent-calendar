@@ -45,7 +45,7 @@ const EditCategory = () => {
 
 						{addProduct 
 							? <AddProduct category={category}/>
-							: <div className="button-wrapper">
+							: <div className="button-wrapper button-wrapper__add-product">
 								<Button onClick={handleAddProduct} type="button" className="button__primary">
 									<Plus className="icon button-icon" />
 									Lägg till produkt

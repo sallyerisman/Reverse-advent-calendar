@@ -23,6 +23,11 @@ const Navigation = () => {
 
     useEffect(() => {
 		setProductList(retrieveFromStorage('products'));
+
+        if (productList && productList.length === 24) {
+            const sidebar = document.getElementsByClassName('sidebar');
+            sidebar[0].classList.add('show');
+        }
     }, [changes]);
 
     const handleToggleDisplay = () => {

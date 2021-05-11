@@ -28,7 +28,7 @@ const App = () => {
 			<StorageContextProvider>
 				<Navigation />
 				<Container className="site-container">
-					<aside className="sidebar">
+					<aside className="sidebar show">
 						<DonationList />
 					</aside>
 

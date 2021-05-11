@@ -21,26 +21,29 @@ const AdminCategoryGrid = ({ categories }) => {
 	}
 
 	return (
-		<Row>
-			<Col>
-				{confirmDelete 
-					? <ConfirmDelete category={confirmDelete}/>
-					: currentUser &&
-						<>
+		<>
+			{confirmDelete 
+				? <ConfirmDelete category={confirmDelete}/>
+				: currentUser &&
+					<>
+						<h1>Vad vi behöver nu</h1>
+						
+						<div className="card-wrapper">
 							{categories.map(category => (
-								<Card key={category.id}>
-									<Card.Body>
+								<Card key={category.id} className="card__category card__category--admin">
+									<Card.Body>							
 										<Link to={`/admin/redigera/${category.urlParam}`} className="link title-link">
-											<Card.Title>{category.title}</Card.Title>
-										</Link>
+											<Card.Title className="card-title--admin">{category.title}</Card.Title>	
+										</Link>								
 										<TrashFill className="icon icon__delete" onClick={() => {handleDeleteCategory(category)}} />
 									</Card.Body>
-								</Card>
+								</Card>		
 							))}
-							
+						</div>
+
 						{addCategory 
 							? <AddCategory />
-							: <div className="button-wrapper">
+							: <div className="button-wrapper button-wrapper__add-category">
 								<Button className="btn button__primary" onClick={handleAddCategory}>
 								<Plus className="icon button-icon" />
 								Lägg till kategori
@@ -48,9 +51,8 @@ const AdminCategoryGrid = ({ categories }) => {
 							</div>								
 						}
 					</>
-				}				
-			</Col>
-		</Row>
+			}				
+		</>
 	)
 }
 

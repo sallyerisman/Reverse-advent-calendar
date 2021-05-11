@@ -26,10 +26,10 @@ const CategoryContent = ({ categoryId, products }) => {
 	}
 
 	return (
-		<>
+		<div className="category-content-wrapper">
 			{products.map(product => (
 				<Card key={product}>
-					<Card.Body>
+					<Card.Body className="card__category-content">
 						<Card.Title>{product}</Card.Title>
 						{currentUser  
 							? <TrashFill 
@@ -43,7 +43,7 @@ const CategoryContent = ({ categoryId, products }) => {
 					</Card.Body>
 				</Card>
 			))}
-		</>
+		</div>
 	)
 }
 

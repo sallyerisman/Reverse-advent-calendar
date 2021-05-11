@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import DotLoader from 'react-spinners/DotLoader'
 import { auth } from '../firebase'
 
 const AuthContext = createContext()
@@ -43,7 +44,7 @@ const AuthContextProvider = (props) => {
 
 	return (
 		<AuthContext.Provider value={contextValues}>
-			{loading && "Loading..."}
+			{loading && <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>}
 			{!loading && props.children}
 		</AuthContext.Provider>
 	)

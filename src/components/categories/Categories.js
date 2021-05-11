@@ -11,9 +11,7 @@ const Categories = () => {
 
 	return (
 		<Row className="page-content">
-			<Col md={{ span: 9}} lg={{ span: 8}}>
-				<h1>Vad vi behöver nu</h1>
-
+			<Col className="main-col"md={{ span: 10}} lg={{ span: 8}}>
 				{loading
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
 					: currentUser 
