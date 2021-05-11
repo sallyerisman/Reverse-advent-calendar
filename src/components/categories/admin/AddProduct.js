@@ -57,7 +57,7 @@ const AddProduct = ({ category }) => {
 	}
 
 	return (
-		<Row className="page page__add-category">
+		<Row className="page page__add-product">
 			<Col>
 				{error && <Alert variant="danger">{error}</Alert>}
 

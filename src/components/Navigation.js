@@ -14,7 +14,7 @@ const Navigation = () => {
     const { changes, retrieveFromStorage } = useStorage()
     
     useEffect(() => {
-        if (window.location.pathname === "/admin") {
+        if (window.location.toString().includes("admin")) {
             setAdminMode(true)
         }
     }, []);
@@ -39,7 +39,7 @@ const Navigation = () => {
             </Link>
 
             <div className="navlink-wrapper">
-                {productList && productList.length > 0 &&                
+                {productList && productList.length > 0 && !adminMode &&               
                     <span className="icon-wrapper icon-wrapper__gift">
                         <GiftFill className="icon icon--nav icon__gift" onClick={handleToggleDisplay}/>
                         {productList.length}      

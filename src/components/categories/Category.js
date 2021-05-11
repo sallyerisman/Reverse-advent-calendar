@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
-import { ArrowLeft } from 'react-bootstrap-icons'
 import DotLoader from 'react-spinners/DotLoader'
 import { useAuth } from '../../contexts/AuthContext'
 import useCategory from '../../hooks/useCategory'
@@ -26,10 +24,8 @@ const Category = () => {
 									? <div>Just nu finns det inga produkter i denna kategori</div>
 									: <CategoryContent categoryId={category.id} products={category.products}/>					
 								}
-							</>}
-						<Link to="/donera">
-							<ArrowLeft className="icon icon__arrow-left"/>                  
-						</Link>			
+							</>
+						}
 					</>
 				}
 			</Col>	

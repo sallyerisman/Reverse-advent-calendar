@@ -14,12 +14,7 @@
 }
 
 .card__contact {
-	padding-top: 1rem;
-
-	&:nth-child(even) {
-		padding-top: 0;
-		padding-bottom: 1rem;
-	}
+	padding: 2rem 0;
 
 	.card-body {
 		display: flex;
@@ -27,35 +22,32 @@
 	
 		.card-title {
 			font-size: 1.2rem;
+			margin-bottom: 2.2rem;
 		}
 	
 		.card-text {
-			font-size: 0.9rem;;
+			font-size: 0.9rem;
+
+			p {
+				margin-bottom: 0.7rem;
+			}
+
+			span {
+				font-weight: bold;
+			}
 		}
 	
-		// Tablet
-		@media only screen and (min-width: 768px) {
+		// Desktop 
+		@media only screen and (min-width: 992px) {
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
 	
 			.card-title {
 				width: 40%;
-				margin-right: 2rem;
+				margin-right: 2.4rem;
 			}
 		}
-	}
-}
-
-.card__contact:nth-child(even) {
-	padding-top: 0;
-	padding-bottom: 1rem;
-}
-
-.card--product {
-	.card-body {
-		padding-top: 0;
-		padding-bottom: 0;
 	}
 }
 

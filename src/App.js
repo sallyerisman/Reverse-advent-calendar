@@ -29,6 +29,7 @@ const App = () => {
 						<aside className="sidebar">
 							<DonationList />
 						</aside>
+
 						<main className="main">
 							<Routes>
 								<Route path="/">

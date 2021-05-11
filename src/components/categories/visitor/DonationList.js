@@ -20,17 +20,19 @@ const DonationList = () => {
 			count[item] = 1
 		})
 		
-		setCountedList(Object.entries(count))
+		setCountedList(Object.entries(count));
 	}
 
-	
 	const handleRemoveItem = (item) => {
 		setProductList(removeFromStorage('products', item));
 	}
 
 	useEffect(() => {
-		setProductList(retrieveFromStorage('products'));
-		handleCount(productList);
+		const setProducts = retrieveFromStorage('products');
+
+		setProductList(setProducts);
+		handleCount(setProducts);
+		
 	}, [changes]);
 
 	return (

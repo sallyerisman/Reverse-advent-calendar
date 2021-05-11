@@ -12,7 +12,7 @@ const Categories = () => {
 	return (
 		<Row>
 			<Col>
-				<h1>Vad vi behöver just nu</h1>
+				<h1>Vad vi behöver nu</h1>
 
 				{loading
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>

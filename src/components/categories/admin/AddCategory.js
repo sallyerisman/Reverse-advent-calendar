@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
+import { Plus } from 'react-bootstrap-icons'
 import { db } from '../../../firebase'
 
 const AddCategory = () => {
@@ -94,7 +95,9 @@ const AddCategory = () => {
 					</Form.Group>
 
 					<div className="button-wrapper">
-						<Button disabled={loading} className="btn button__primary" type="submit">Lägg till</Button>
+						<Button disabled={loading} className="btn button__primary" type="submit">											<Plus className="icon button-icon" />
+							Lägg till
+						</Button>
 					</div>
 				</Form>
 			</Col>

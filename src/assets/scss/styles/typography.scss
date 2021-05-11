@@ -22,12 +22,13 @@ h1,
 	font-size: 1.8rem;
 	text-transform: uppercase;
 	line-height: 4rem;
-	margin-bottom: 5rem;
+	margin-bottom: 3rem;
 	text-align: center;
 
 	// Tablet
 	@media only screen and (min-width: 768px) {
 		font-size: 2.2rem;
+		margin-bottom: 5rem;
 	}
 
 	// Desktop 
@@ -89,12 +90,6 @@ p {
 	p {
 		font-size: 0.8rem;;
 	}
-}
-
-.help-text {
-	text-align: center;
-	font-style: italic;
-	margin-bottom: 3rem;
 }
 
 .home-page-text {

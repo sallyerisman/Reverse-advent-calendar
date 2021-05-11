@@ -21,7 +21,7 @@ const AdminCategoryGrid = ({ categories }) => {
 	}
 
 	return (
-		<Row className="page__category">
+		<Row>
 			<Col>
 				{confirmDelete 
 					? <ConfirmDelete category={confirmDelete}/>

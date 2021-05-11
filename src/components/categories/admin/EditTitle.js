@@ -73,7 +73,7 @@ const EditTitle = ({ category }) => {
 
 			<Form onSubmit={handleSubmit}>
 				<Form.Group id="title">
-					<Form.Label>Uppdatera namnet på kategorin</Form.Label>
+					<Form.Label className="mb-4">Ändra namnet på kategorin: </Form.Label>
 					<Form.Control type="title" onChange={handleTitleChange} placeholder={title} value={newTitle} autoFocus />
 					
 					{title && title.length < 3 && 
@@ -90,7 +90,9 @@ const EditTitle = ({ category }) => {
 				<div className="button-wrapper">
 					<Button className="btn button__primary" disabled={loading} type="submit">
 						Uppdatera
-					</Button>								
+					</Button>
+
+					<span onClick={() => window.location.reload()} className="link text-link ml-5">Ångra</span>									
 				</div>
 			</Form>
 		</>

@@ -31,7 +31,7 @@ body {
 	@media only screen and (min-width: 768px) {
 		padding-top: 3rem;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: center;
 	}
 
 	// Desktop 
@@ -41,10 +41,9 @@ body {
 }
 
 .main {
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		width: 60%;
-	}
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .sidebar {
@@ -53,18 +52,18 @@ body {
 	&.show {
 		display: block;
 		margin-bottom: 3rem;
-	}
-	
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		display: block;
-		margin-bottom: 3rem;
-		margin-right: 4rem;
-	}
 
-	// Desktop 
-	@media only screen and (min-width: 992px) {
-		margin-right: 6rem;
+		// Tablet
+		@media only screen and (min-width: 768px) {
+			display: block;
+			margin-bottom: 3rem;
+			margin-right: 4rem;
+		}
+
+		// Desktop 
+		@media only screen and (min-width: 992px) {
+			margin-right: 6rem;
+		}
 	}
 }
 
@@ -75,24 +74,37 @@ body {
 
 // Page-specific layout styles
 
-.page__category {
-	display: flex;
-	flex-direction: column;
-}
-
 .page__add-category,
 .page__add-product {
 	padding-top: 3rem;
-
-	// Tablet
-	@media only screen and (min-width: 768px) {
-		padding-top: 3rem;
-	}
 
 	// Desktop 
 	@media only screen and (min-width: 992px) {
 		padding-top: 3.5rem;
 	}
+}
+
+.page__category {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 60%;
+	}
+}
+
+.page__logout {
+	display: flex;
+	justify-content: center;
+}
+
+// Other
+
+.align-center {
+	text-align: center;
 }
 
 

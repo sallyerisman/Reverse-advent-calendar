@@ -37,9 +37,16 @@
 }
 
 .icon__arrow-left {
-	width: 5%;
+	width: 8%;
 	height: auto;
+	display: block;
+	margin: auto;
 	margin-top: 3rem;
+
+		// Desktop 
+		@media only screen and (min-width: 992px) {
+			width: 6%;
+		}
 
 }
 
@@ -74,4 +81,8 @@
 		width: 130%;
 		height: auto;	
 	}
+}
+
+.icon__text-arrow {
+	margin-right: 1rem;
 }

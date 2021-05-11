@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Button, Col, Row } from 'react-bootstrap'
 import { PencilFill, Plus } from 'react-bootstrap-icons'
 import DotLoader from 'react-spinners/DotLoader'
@@ -31,9 +30,8 @@ const EditCategory = () => {
 						? <EditTitle category={category}/> 
 						: <>
 							<h1>
-								<Link to={`/admin/redigera/${category.urlParam}`} className="link title-link">
-									{category.title} 
-								</Link>
+								{category.title} 
+
 								<span onClick={handleEditTitle}	className="edit-text"
 									>Redigera
 									<PencilFill className="icon icon__edit" />
