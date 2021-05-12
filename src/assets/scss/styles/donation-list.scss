@@ -5,8 +5,10 @@
 .donation-card {
 	background-color: rgba(0, 0, 0, 0.5);
 	padding: 1.5rem;
+	padding-top: 2.5rem;
 	padding-bottom: 0.5rem;
 	width: 100%;
+	position: relative;
 
 	// Tablet
 	@media only screen and (min-width: 768px) {

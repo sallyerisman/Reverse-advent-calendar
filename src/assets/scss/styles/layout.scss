@@ -71,10 +71,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	
-	.main-col {
-		max-width: 100%;
-	}
 }
 
 // Component-specific layout styles
@@ -82,6 +78,22 @@ body {
 .page__add-category,
 .page__add-product {
 	padding-top: 3rem;
+
+	// Desktop 
+	@media only screen and (min-width: 992px) {
+		padding-top: 3.5rem;
+	}
+}
+
+.page__delete-category
+.page__edit-title {
+	padding-top: 3rem;
+
+	// Tablet
+	@media only screen and (min-width: 768px) {
+		width: 60%;
+		margin: auto;
+	}
 
 	// Desktop 
 	@media only screen and (min-width: 992px) {

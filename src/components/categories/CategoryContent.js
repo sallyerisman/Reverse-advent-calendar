@@ -16,7 +16,7 @@ const CategoryContent = ({ categoryId, products }) => {
 	useEffect(() => {
 		setProductList(retrieveFromStorage('products'));
 	}, [changes]);
-
+	
 	const handleDeleteProduct = (product) => {
 		setDeleteProduct(product);
 	}

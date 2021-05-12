@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { TrashFill } from 'react-bootstrap-icons'
+import { TrashFill, XCircle } from 'react-bootstrap-icons'
 import { useStorage } from '../../../contexts/StorageContext'
 
 const DonationList = () => {
 	const [countedList, setCountedList] = useState(null)
 	const [productList, setProductList] = useState(null)
 	const { changes, donationComplete, removeFromStorage, retrieveFromStorage } = useStorage()
+
+	const handleClose = () => {
+        const sidebar = document.getElementsByClassName('sidebar');
+        sidebar[0].classList.remove('show');
+    }
 
 	const handleCount = (productList) => {
 		const count = {}
@@ -39,6 +44,7 @@ const DonationList = () => {
 		<>
 			{productList && productList.length > 0 && 
 				<div className="donation-card">
+					<XCircle className="icon icon__close" onClick={handleClose}/>
 					{donationComplete 
 						? <div>
 							<h2 className="heading__sidebar--completed">Du har valt att donera 24 saker - TACK!</h2>

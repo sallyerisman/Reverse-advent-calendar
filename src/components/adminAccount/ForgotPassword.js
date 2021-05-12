@@ -45,7 +45,7 @@ const ForgotPassword = () => {
 					</div>	
 				</Form>
 
-				<Link to="/admin">Tillbaka till inloggningssidan</Link>
+				<Link className="link text-link" to="/admin">Tillbaka till inloggningssidan</Link>
 			</Col>
 		</Row>		
 	)

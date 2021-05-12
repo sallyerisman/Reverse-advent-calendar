@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Alert, Button, Form } from 'react-bootstrap'
+import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 import { db } from '../../../firebase'
 
 const EditTitle = ({ category }) => {
@@ -68,34 +68,37 @@ const EditTitle = ({ category }) => {
 	}
 
 	return (
-		<>
-            {error && <Alert variant="danger">{error}</Alert>}
+		<Row className="page-content page__edit-title">
+			<Col md={{ span: 10}} lg={{ span: 8}}>
+				{error && <Alert variant="danger">{error}</Alert>}
 
-			<Form onSubmit={handleSubmit}>
-				<Form.Group id="title">
-					<Form.Label className="mb-4">Ändra namnet på kategorin: </Form.Label>
-					<Form.Control type="title" onChange={handleTitleChange} placeholder={title} value={newTitle} autoFocus />
-					
-					{title && title.length < 3 && 
-						<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
-					}
+				<p>Ändra namnet på kategorin</p>
 
-					{titleExists && 
-						<>
-							<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
-						</>
-					}
-				</Form.Group>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group id="title">
+						<Form.Control type="title" onChange={handleTitleChange} placeholder="Nytt kategorinamn" value={newTitle} autoFocus />
+						
+						{title && title.length < 3 && 
+							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
+						}
 
-				<div className="button-wrapper button-wrapper__edit">
-					<Button className="btn button__primary" disabled={loading} type="submit">
-						Uppdatera
-					</Button>
+						{titleExists && 
+							<>
+								<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
+							</>
+						}
+					</Form.Group>
 
-					<span onClick={() => window.location.reload()} className="link text-link ml-5">Ångra</span>									
-				</div>
-			</Form>
-		</>
+					<div className="button-wrapper button-wrapper__edit">
+						<Button className="btn button__primary" disabled={loading} type="submit">
+							Uppdatera
+						</Button>
+
+						<span onClick={() => window.location.reload()} className="link text-link ml-5">Ångra</span>									
+					</div>
+				</Form>
+			</Col>
+		</Row>
 	)
 }
 

@@ -15,18 +15,7 @@
 	&__add-category,
 	&__add-product {
 		display: flex;
-		margin-right: auto;
-		margin-left: auto;
-	
-		// Tablet
-		@media only screen and (min-width: 768px) {
-			width: 70%;
-		}
-
-		// Desktop 
-		@media only screen and (min-width: 992px) {
-			width: 80%;
-		}
+		justify-content: center;	
 	}
 
 	&__edit {

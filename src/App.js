@@ -57,7 +57,7 @@ const App = () => {
 							</Route>
 
 							<Route path="/admin">
-								<Route path="/">
+								<Route exact path="/">
 									{!currentUser 
 										? <Login />
 										: <Navigate to="/admin/redigera" /> 		

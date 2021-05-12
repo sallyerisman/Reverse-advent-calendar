@@ -19,7 +19,7 @@ const AddCategory = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		if (title.length < 3) {
+		if (title.length < 3 || title.length > 16) {
 			return;
 		}
 
@@ -71,36 +71,38 @@ const AddCategory = () => {
 	}
 
 	return (
-		<Row className="page page__add-category">
-			<Col>
-				<h2>Skapa ny kategori</h2>
+		<div className="page__add-category">
+			<h2>Skapa ny kategori</h2>
 
-				{error && <Alert variant="danger">{error}</Alert>}
+			{error && <Alert variant="danger">{error}</Alert>}
 
-				<Form onSubmit={handleSubmit}>
-					<Form.Group id="title">
-						<Form.Control placeholder="Namn på kategorin" type="title" onChange={handleTitleChange} value={title} autoFocus required />
+			<Form onSubmit={handleSubmit}>
+				<Form.Group id="title">
+					<Form.Control placeholder="Namn på kategorin" type="title" onChange={handleTitleChange} value={title} autoFocus required />
 
-						{title && title.length < 3 && 
-							<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
-						}
+					{title && title.length < 3 && 
+						<Form.Text className="text__alert">Namnet på kategorin måste vara minst 3 tecken långt.</Form.Text>
+					}
 
-						{titleExists && 
-							<>
-								<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
-								<Link to='/admin/redigera'>Tillbaka till redigeringsvyn</Link>
-							</>
-						}
-					</Form.Group>
+					{title && title.length > 16 && 
+						<Form.Text className="text__alert">Namnet på kategorin får max vara 16 tecken långt.</Form.Text>
+					}
 
-					<div className="button-wrapper">
-						<Button disabled={loading} className="btn button__primary" type="submit">											<Plus className="icon button-icon" />
-							Lägg till
-						</Button>
-					</div>
-				</Form>
-			</Col>
-		</Row>
+					{titleExists && 
+						<>
+							<Form.Text className="text__alert">Det finns redan en kategori med detta namn.</Form.Text>
+							<Link to='/admin/redigera'>Tillbaka till redigeringsvyn</Link>
+						</>
+					}
+				</Form.Group>
+
+				<div className="button-wrapper">
+					<Button disabled={loading} className="btn button__primary" type="submit">											<Plus className="icon button-icon" />
+						Lägg till
+					</Button>
+				</div>
+			</Form>
+		</div>
 	)
 }
 

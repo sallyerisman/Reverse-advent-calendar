@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import DotLoader from 'react-spinners/DotLoader'
 import { useAuth } from '../../contexts/AuthContext'
@@ -9,9 +10,13 @@ const Categories = () => {
 	const { categories, loading } = useCategories()
 	const { currentUser } = useAuth()
 
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 	return (
 		<Row className="page-content">
-			<Col className="main-col"md={{ span: 10}} lg={{ span: 8}}>
+			<Col md={{ span: 10}} lg={{ span: 8}}>
 				{loading
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
 					: currentUser 

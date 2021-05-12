@@ -5,7 +5,7 @@ import { Arrow90degLeft } from 'react-bootstrap-icons'
 const Contact = () => {
     return ( 
         <Row className="page-content">
-            <Col className="main-col" md={{ span: 10}} lg={{ span: 8}}>
+            <Col md={{ span: 10}} lg={{ span: 8}}>
                 <h1>Inlämning</h1>
 
                 <Card className="card__contact">

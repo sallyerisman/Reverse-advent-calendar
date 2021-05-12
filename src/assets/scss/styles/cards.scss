@@ -28,7 +28,6 @@
 .category-content-wrapper {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	margin: auto;
 
 	// Tablet
@@ -104,8 +103,15 @@
 		.card-title {
 			font-size: 1.2rem;
 			margin-bottom: 2.2rem;
+
+			// Desktop 
+			@media only screen and (min-width: 992px) {
+				padding-right: 2rem;
+				padding-left: 2rem;
+				margin-right: 2rem;
+			}
 		}
-	
+
 		.card-text {
 			font-size: 0.9rem;
 
@@ -123,12 +129,6 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-	
-			.card-title {
-				width: 40%;
-				padding-right: 2rem;
-				padding-left: 1rem;
-			}
 		}
 	}
 }

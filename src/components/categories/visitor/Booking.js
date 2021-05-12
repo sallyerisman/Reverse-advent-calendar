@@ -6,7 +6,7 @@ const Booking = () => {
 
 	return (
 		<Row className="page-content">
-			<Col className="main-col" md={{ span: 9}} lg={{ span: 8}}>
+			<Col md={{ span: 9}} lg={{ span: 8}}>
                 <h1>Boka upphämtning</h1>
 
                 <p>Här ska det gå att boka upphämtning</p>

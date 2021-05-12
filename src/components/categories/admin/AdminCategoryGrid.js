@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { Plus, TrashFill } from 'react-bootstrap-icons'
@@ -7,8 +7,9 @@ import AddCategory from './AddCategory'
 import ConfirmDelete from './ConfirmDelete'
 
 const AdminCategoryGrid = ({ categories }) => {
-	const [addCategory, setAddCategory] = useState(false);
-	const [confirmDelete, setConfirmDelete] = useState(null);
+	const [addCategory, setAddCategory] = useState(false)
+	const [adminMode, setAdminMode] = useState(false)
+	const [confirmDelete, setConfirmDelete] = useState(null)
 
 	const { currentUser } = useAuth()
 
@@ -19,6 +20,14 @@ const AdminCategoryGrid = ({ categories }) => {
 	const handleDeleteCategory = (category) => {
 		setConfirmDelete(category)
 	}
+
+	useEffect(() => {
+        if (window.location.toString().includes("admin") && currentUser) {
+            setAdminMode(true)
+        } else {
+            setAdminMode(false)
+        }
+    }, []);
 
 	return (
 		<>
@@ -34,8 +43,10 @@ const AdminCategoryGrid = ({ categories }) => {
 									<Card.Body>							
 										<Link to={`/admin/redigera/${category.urlParam}`} className="link title-link">
 											<Card.Title className="card-title--admin">{category.title}</Card.Title>	
-										</Link>								
-										<TrashFill className="icon icon__delete" onClick={() => {handleDeleteCategory(category)}} />
+										</Link>
+										{adminMode &&
+											<TrashFill className="icon icon__delete" onClick={() => {handleDeleteCategory(category)}} />
+										}								
 									</Card.Body>
 								</Card>		
 							))}
@@ -45,9 +56,9 @@ const AdminCategoryGrid = ({ categories }) => {
 							? <AddCategory />
 							: <div className="button-wrapper button-wrapper__add-category">
 								<Button className="btn button__primary" onClick={handleAddCategory}>
-								<Plus className="icon button-icon" />
-								Lägg till kategori
-							</Button>
+									<Plus className="icon button-icon" />
+									Lägg till kategori
+								</Button>
 							</div>								
 						}
 					</>

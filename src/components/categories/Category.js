@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
 import { Arrow90degLeft } from 'react-bootstrap-icons'
@@ -11,9 +12,13 @@ const Category = () => {
 	const { currentUser } = useAuth()
 	const { category, loading } = useCategory()
 
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 	return (
 		<Row className="page-content">
-			<Col className="main-col" md={{ span: 10}} lg={{ span: 8}}>
+			<Col md={{ span: 10}} lg={{ span: 8}}>
 				{loading 
 					? <div className="spinner-wrapper"><DotLoader color="#ffffff"/></div>
 					: <>
